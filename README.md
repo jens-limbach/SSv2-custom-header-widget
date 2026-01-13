@@ -1,13 +1,16 @@
 # CRM Scoring Widget
 
-A minimal micro-frontend for embedding custom scoring in SAP Sales and Service Cloud V2. This lightweight widget provides a clean, SAP-styled interface for editing custom score fields directly within your CRM system.
+A minimal micro-frontend for embedding a visual "custom scoring" component in SAP Sales and Service Cloud V2. It shows how easy it is to add completly custom UX elements anywhere where you can place a mashup.
+
+And mashups can be placed in almost any place like: the quick create, the quick view, a new tab in an object or like in this example in the header area of an object.
+
 
 ## ✨ Features
 
 - ✅ **Single Input Field & Slider** - Type or drag to set score (0-100)
-- ✅ **Dark Theme Integration** - Background: `#00144a` (SAP CRM dark blue)
+- ✅ **Dark Blue Header Integration** - Background: `#00144a` (SAP CRM dark blue)
 - ✅ **Auto-Save Logic** - Saves on Enter, blur, or slider release
-- ✅ **SAP Fiori Styling** - Seamless integration with CRM interface
+- ✅ **SAP Sales and Service Cloud V2 Styling** - Seamless integration with CRM interface
 - ✅ **Input Validation** - Values clamped to 0-100 range with error handling
 - ✅ **Secure Express Proxy** - Server-side API calls with Basic Auth
 - ✅ **No Framework Dependencies** - Pure HTML/CSS/JavaScript
@@ -54,14 +57,9 @@ http://localhost:3000/?accountId=YOUR_ACCOUNT_UUID_HERE
 
 ### Embedding as iframe in SAP CRM
 
-```html
-<iframe 
-  src="https://your-app.cfapps.eu10.hana.ondemand.com/?accountId=ACCOUNT_UUID_HERE" 
-  width="450" 
-  height="200"
-  frameborder="0"
-></iframe>
-```
+Use the standard Mashup functionality to create first a mashup and then add it to the Account header.
+
+For more information on SAP Sales and Service Cloud V2 extensibility, see the [SAP Help Portal - Mashup Page Extensibility](https://help.sap.com/docs/CX_NG_SALES/348d3cace0eb4146a4af6e018cbbb88c/5a9d11b0c9944e49bb2c556be534b40f.html).
 
 ### URL Parameters
 
@@ -137,20 +135,6 @@ crm-scoring-widget/
 - **Security**: Basic Auth credentials handled server-side only
 - **Performance**: Direct API calls with no framework overhead
 
-## 🧪 Testing Checklist
-
-- [ ] Configure [server/.env](server/.env) with your CRM credentials
-- [ ] Start server: `npm run dev:server`
-- [ ] Open: `http://localhost:3000/?accountId=VALID_UUID`
-- [ ] **Load Test**: Verify score loads from CRM API
-- [ ] **Input Sync**: Type in field → slider updates automatically
-- [ ] **Slider Sync**: Drag slider → input field updates automatically
-- [ ] **Auto-Save**: Press Enter → saves to CRM API
-- [ ] **Auto-Save**: Click outside field → saves to CRM API  
-- [ ] **Auto-Save**: Release slider drag → saves to CRM API
-- [ ] **Validation**: Enter 150 → clamped to 100
-- [ ] **Validation**: Enter "abc" → defaults to 0
-
 ## 🐛 Troubleshooting
 
 **"No accountId provided"**
@@ -188,7 +172,3 @@ cf set-env crm-scoring-widget CRM_USERNAME "your-username"
 cf set-env crm-scoring-widget CRM_PASSWORD "your-password"
 cf restage crm-scoring-widget
 ```
-
-## 📄 License
-
-MIT
