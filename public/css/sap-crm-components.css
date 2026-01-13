@@ -1,0 +1,3465 @@
+﻿/**
+ * SAP CRM Components
+ * Merged component styles including buttons, tables, inputs, and input controls
+ * Extracted from SAP CXM Web Components
+ */
+
+/* ========================================
+   ICON STYLES
+   ======================================== */
+
+.sap-crm-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  outline: none;
+}
+
+.sap-crm-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+/* Icon size modifiers */
+.sap-crm-icon--sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+.sap-crm-icon--md {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.sap-crm-icon--lg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+/* ========================================
+   INPUT CONTROLS (Checkboxes, Radio, Switch)
+   ======================================== */
+
+/**
+ * SAP CRM Input Control Styles
+ * Extracted from web-components library
+ * Can be used in custom UI projects to apply SAP CRM input control styling
+ * 
+ * Includes styles for:
+ * - Checkboxes
+ * - Radio buttons
+ * - Switch controls
+ * 
+ * Usage: 
+ * 1. Include this CSS file in your project
+ * 2. Apply the class names to your input elements
+ * 
+ * Example - Checkbox:
+ * <div class="sap-crm-icontrol sap-crm-icontrol__checkbox">
+ *   <input type="checkbox" id="myCheckbox">
+ *   <div class="sap-crm-icontrol__wrap sap-crm-icontrol__wrap--checkbox">
+ *     <svg class="sap-crm-icontrol__icon">...</svg>
+ *   </div>
+ * </div>
+ * 
+ * Example - Radio:
+ * <div class="sap-crm-icontrol sap-crm-icontrol__radio">
+ *   <input type="radio" name="group" id="myRadio">
+ *   <div class="sap-crm-icontrol__wrap sap-crm-icontrol__wrap--radio"></div>
+ * </div>
+ * 
+ * Example - Switch:
+ * <div class="sap-crm-icontrol sap-crm-icontrol__switch">
+ *   <input type="checkbox" id="mySwitch">
+ *   <div class="sap-crm-icontrol__wrap sap-crm-icontrol__wrap--switch">
+ *     <div class="sap-crm-icontrol__icon">...</div>
+ *   </div>
+ * </div>
+ */
+
+.sap-crm-icontrol {
+  width: var(--checkbox-icontrol-size, 1.25rem);
+  height: var(--checkbox-icontrol-size, 1.25rem);
+  display: inline-block;
+  position: relative;
+  flex: 0 0 auto;
+  padding: var(--icontrol-padding);
+}
+
+.sap-crm-icontrol__label {
+  display: -webkit-inline-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.sap-crm-icontrol input {
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.sap-crm-icontrol__wrap, .sap-crm-icontrol input {
+  width: var(--checkbox-icontrol-size, 1.25rem);
+  height: var(--checkbox-icontrol-size, 1.25rem);
+  position: absolute;
+}
+
+.sap-crm-icontrol__wrap {
+  border: 0.125rem solid var(--color-neutral-4);
+  content: "";
+  box-sizing: border-box;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-property: border, background, transform;
+  transition-duration: 0.1s;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sap-crm-icontrol__wrap--checkbox {
+  border-radius: 0.25rem;
+  background-color: var(--color-background-white);
+}
+
+.sap-crm-icontrol__wrap--checkbox--disabled {
+  border-color: var(--color-neutral-3);
+}
+
+.sap-crm-icontrol__wrap--checkbox--disabled svg {
+  opacity: 0.5;
+}
+
+.sap-crm-icontrol__wrap--checkbox--indeterminate {
+  position: relative;
+  height: var(--checkbox-indeterminate-icon-size, 0.75rem);
+  width: var(--checkbox-indeterminate-icon-size, 0.75rem);
+  border-radius: 2px;
+  background: var(--color-primary-4) !important;
+}
+
+.sap-crm-rtl .sap-crm-icontrol__wrap--checkbox--indeterminate {
+  right: 2px;
+}
+
+.sap-crm-icontrol__wrap--radio {
+  border-radius: 100%;
+  background-color: var(--color-background-white);
+}
+
+.sap-crm-icontrol__wrap--switch {
+  width: 2rem;
+  height: 1.125rem;
+  border-width: 0.0625rem;
+  border-radius: 100rem;
+  background-color: var(--color-neutral-4) !important;
+}
+
+.sap-crm-icontrol__wrap--switch:focus-visible:not(:disabled) {
+  outline: 0.125rem solid var(--color-primary-6) !important;
+  outline-offset: 2px;
+  border-radius: 0.75rem;
+}
+
+.sap-crm-icontrol--disabled {
+  color: var(--color-neutral-3) !important;
+}
+
+.sap-crm-rtl .sap-crm-icontrol__wrap {
+  right: 0.0625rem;
+  left: unset;
+}
+
+.sap-crm-icontrol__checkbox input:hover:not(:disabled) + .sap-crm-icontrol__wrap {
+  border-color: var(--color-primary-5);
+  background-color: var(--color-primary-1);
+}
+
+.sap-crm-icontrol__checkbox input:checked + .sap-crm-icontrol__wrap {
+  transform: rotate(90deg);
+}
+
+.sap-crm-icontrol__checkbox input:checked + .sap-crm-icontrol__wrap .sap-crm-icontrol__icon {
+  opacity: 1;
+  transform: scale(1) rotate(-90deg);
+}
+
+.sap-crm-icontrol__checkbox input:disabled {
+  cursor: not-allowed;
+}
+
+.sap-crm-icontrol__checkbox .sap-crm-icontrol__icon {
+  width: var(--checkbox-icontrol-size, 1.25rem);
+  height: var(--checkbox-icontrol-size, 1.25rem);
+  color: var(--color-primary-5);
+  margin: -0.15rem;
+  vertical-align: top;
+  transform: scale(0.1) rotate(-90deg);
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sap-crm-rtl .sap-crm-icontrol__checkbox .sap-crm-icontrol__icon {
+  margin: -0.125rem -0.125rem 0 0;
+}
+
+.sap-crm-icontrol__radio input:hover:not(:disabled) + .sap-crm-icontrol__wrap {
+  border-color: var(--color-primary-5);
+  background-color: var(--color-primary-1);
+}
+
+.sap-crm-icontrol__radio input:checked + .sap-crm-icontrol__wrap {
+  border-color: var(--color-neutral-4);
+}
+
+.sap-crm-icontrol__radio input:checked + .sap-crm-icontrol__wrap:after, .sap-crm-icontrol__radio input:checked + .sap-crm-icontrol__wrap:before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.sap-crm-icontrol__radio input:disabled {
+  cursor: not-allowed;
+}
+
+.sap-crm-icontrol__radio .sap-crm-icontrol__wrap:after {
+  width: var(--radio-button-icontrol-size-after, 0.75rem);
+  height: var(--radio-button-icontrol-size-after, 0.75rem);
+  background: var(--color-primary-5);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 100%;
+  content: "";
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.1);
+  transition-property: opacity, transform;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sap-crm-icontrol__radio .sap-crm-icontrol__wrap[disabled]:after {
+  background: var(--color-primary-5);
+}
+
+.sap-crm-rtl .sap-crm-icontrol__radio .sap-crm-icontrol__wrap:after {
+  right: 0.13rem;
+  left: unset;
+}
+
+.sap-crm-rtl .sap-crm-icontrol__radio .sap-crm-icontrol__wrap:before {
+  margin: -0.125rem -0.125rem 0 0;
+  right: 50%;
+  left: unset;
+}
+
+.sap-crm-icontrol__switch:focus-visible:not(:disabled) {
+  outline: 0.125rem solid var(--color-primary-6);
+  outline-offset: 2px;
+  border-radius: 0.75rem;
+}
+
+.sap-crm-icontrol__switch:hover input:checked:enabled + .sap-crm-icontrol__wrap--switch .sap-crm-icontrol__icon {
+  box-shadow: 0 0 0 0.125rem var(--color-primary-3);
+}
+
+.sap-crm-icontrol__switch:hover input:enabled + .sap-crm-icontrol__wrap--switch .sap-crm-icontrol__icon {
+  box-shadow: 0 0 0 0.125rem var(--color-neutral-3);
+}
+
+.sap-crm-icontrol__switch input:disabled {
+  cursor: not-allowed;
+}
+
+.sap-crm-icontrol__switch input:checked + .sap-crm-icontrol__wrap {
+  color: var(--color-background-white);
+  background: var(--color-accent-blue-4) !important;
+  border-color: transparent;
+}
+
+.sap-crm-icontrol__switch input:checked + .sap-crm-icontrol__wrap .sap-crm-icontrol__icon {
+  transform: translateX(0.75rem);
+  background-color: var(--color-primary-1);
+}
+
+.sap-crm-icontrol__switch .sap-crm-icontrol__wrap {
+  color: var(--color-neutral-4);
+}
+
+.sap-crm-icontrol__switch .sap-crm-icontrol__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0;
+  width: 1.125rem;
+  height: 0.875rem;
+  position: absolute;
+  background: var(--color-background-white);
+  border-radius: 0.5rem;
+  transition-property: color, transform;
+  transition-duration: 0.1s;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sap-crm-icontrol__switch .sap-crm-icontrol__icon--check {
+  color: var(--color-primary-5);
+}
+
+.sap-crm-icontrol__switch .sap-crm-icontrol__icon--unCheck {
+  color: var(--color-neutral-7);
+}
+
+.sap-crm-rtl .sap-crm-icontrol__switch input:checked + .sap-crm-icontrol__wrap .sap-crm-icontrol__icon {
+  transform: translateX(-0.75rem);
+}
+
+.sap-crm-rtl .sap-crm-icontrol__switch .sap-crm-icontrol__icon, .sap-crm-rtl.sap-crm-icontrol input {
+  right: 0;
+  left: unset;
+}
+
+
+/* ========================================
+   TEXT INPUTS & TEXTAREAS
+   ======================================== */
+
+/**
+ * SAP CRM Input and Multi-Input Styles
+ * Extracted from web-components library
+ * Can be used in custom UI projects to apply SAP CRM input styling
+ * 
+ * Includes styles for:
+ * - Standard text inputs
+ * - Textarea inputs
+ * - Inline inputs
+ * - Multi-line inputs
+ * - Multi-combo/Multi-input controls
+ * - Error states
+ * - Disabled states
+ * - Input with icons and buttons
+ * 
+ * Usage Examples:
+ * 
+ * Standard Input:
+ * <div class="sap-crm-input">
+ *   <input type="text" placeholder="Enter text...">
+ * </div>
+ * 
+ * Input with Icon:
+ * <div class="sap-crm-input sap-crm-input--spaceleft">
+ *   <svg class="sap-crm-input__icon">...</svg>
+ *   <input type="text">
+ * </div>
+ * 
+ * Textarea:
+ * <div class="sap-crm-input sap-crm-input--textarea">
+ *   <textarea rows="4"></textarea>
+ * </div>
+ * 
+ * Multi-Input:
+ * <div class="sap-crm-input--container">
+ *   <div class="sap-crm-multi-combo sap-crm-multi-combo--multi-input">
+ *     <div class="sap-crm-multi-combo--inner">
+ *       <div class="sap-crm-tokenizer--container">
+ *         <span class="sap-crm-multi-combo--token">Token 1</span>
+ *       </div>
+ *       <input type="text" class="sap-crm-multi-combo--input sap-crm-input__input">
+ *     </div>
+ *   </div>
+ * </div>
+ * 
+ * Error State:
+ * <div class="sap-crm-input sap-crm-input--error">
+ *   <input type="text">
+ * </div>
+ */
+
+/* ========================================
+   Base Input Styles
+   ======================================== */
+
+.sap-crm-input {
+  position: relative;
+}
+
+.sap-crm-input input, .sap-crm-input textarea {
+  width: 100%;
+  font-family: "72", Helvetica, -apple-system, Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  text-align: inherit;
+  color: var(--color-neutral-7);
+  background: inherit;
+}
+
+.sap-crm-input input::-moz-placeholder, .sap-crm-input textarea::-moz-placeholder {
+  font-style: italic;
+  color: var(--color-neutral-5);
+}
+
+.sap-crm-input input::placeholder, .sap-crm-input textarea::placeholder {
+  font-style: italic;
+  color: var(--color-neutral-5);
+}
+
+.sap-crm-input:not(.sap-crm-input--disabled):not(.sap-crm-input--error):not(.sap-crm-input__input):not(.sap-crm-input--textarea):focus-within {
+  border-radius: 0.25rem !important;
+  box-shadow: 0 0 0 0.125rem var(--color-primary-4);
+}
+
+.sap-crm-input:not(.sap-crm-input--disabled):not(.sap-crm-input--error):not(.sap-crm-input__input):not(.sap-crm-input--textarea):focus-within input {
+  border-color: transparent;
+  background: unset;
+}
+
+.sap-crm-input--textarea, .sap-crm-input input {
+  border: 1px solid var(--color-neutral-3);
+  border-bottom: none !important;
+  background: linear-gradient(0deg, var(--color-neutral-4), var(--color-neutral-4)) 0 100%/100% 0.0625rem no-repeat border-box var(--color-background-white);
+  border-radius: 0.25rem;
+  line-height: 1.5rem;
+  background-color: var(--color-background-white);
+  vertical-align: top;
+  padding: var(--input-padding-y, 0.4475rem) 1rem;
+  transition-property: border-color, box-shadow;
+  transition-duration: 0.1s;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sap-crm-input--textarea:not(.sap-crm-input__input):hover:enabled, .sap-crm-input input:not(.sap-crm-input__input):hover:enabled {
+  background-color: var(--color-background-white);
+  border-color: var(--color-primary-3);
+  color: var(--color-neutral-7);
+  background: linear-gradient(0deg, var(--color-primary-4), var(--color-primary-4)) 0 100%/100% 0.0625rem no-repeat border-box border-box var(--color-background-white);
+}
+
+.sap-crm-input--textarea:not(.sap-crm-input__input):focus, .sap-crm-input input:not(.sap-crm-input__input):focus {
+  border-radius: 0.25rem !important;
+  box-shadow: 0 0 0 0.125rem var(--color-primary-4);
+  background-color: var(--color-background-white);
+  border-color: transparent !important;
+  background: unset !important;
+}
+
+.sap-crm-input--textarea:not(.sap-crm-input__input):active:enabled, .sap-crm-input input:not(.sap-crm-input__input):active:enabled {
+  outline: unset !important;
+  border-radius: 0.25rem !important;
+  box-shadow: 0 0 0 0.125rem var(--color-primary-4);
+  background-color: var(--color-background-white);
+}
+
+.sap-crm-input--textarea:not(.sap-crm-input__input):active:enabled .sap-crm-input__btn, .sap-crm-input input:not(.sap-crm-input__input):active:enabled .sap-crm-input__btn {
+  border: 1px solid var(--color-primary-4) !important;
+}
+
+.sap-crm-input input:disabled, .sap-crm-input input[disabled] {
+  transform: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+  box-shadow: unset;
+}
+
+.sap-crm-input__input {
+  border: 0 !important;
+  box-shadow: unset !important;
+  width: auto !important;
+  background: inherit !important;
+}
+
+/* ========================================
+   Input Container
+   ======================================== */
+
+.sap-crm-input--container {
+  border: 1px solid var(--color-neutral-3);
+  border-bottom: none !important;
+  background: linear-gradient(0deg, var(--color-neutral-4), var(--color-neutral-4)) 0 100%/100% 0.0625rem no-repeat border-box var(--color-background-white);
+  overflow: hidden;
+  border-radius: 0.25rem;
+}
+
+.sap-crm-input--container:not([disabled]):focus-within {
+  border-color: transparent !important;
+  background: var(--color-background-white) !important;
+  background: var(--color-background-white);
+  box-shadow: 0 0 0 0.125rem var(--color-primary-4) !important;
+  border-radius: 0.25rem;
+  outline: unset !important;
+}
+
+.sap-crm-input--container:not([disabled]):hover {
+  background-color: var(--color-background-white);
+  border-color: var(--color-primary-3);
+  color: var(--color-neutral-7);
+  background: linear-gradient(0deg, var(--color-primary-4), var(--color-primary-4)) 0 100%/100% 0.0625rem no-repeat border-box border-box var(--color-background-white);
+}
+
+.sap-crm-input--container--error {
+  background-color: var(--color-accent-red-2);
+  background: linear-gradient(0deg, var(--color-accent-red-4), var(--color-accent-red-4)) 0 100%/100% 0.0625rem no-repeat border-box !important;
+  border: 1px solid var(--color-accent-red-3);
+}
+
+.sap-crm-input--container--error .sap-crm-input__input {
+  background: transparent !important;
+}
+
+.sap-crm-input--container--error:not(.sap-crm-input__input):not([disabled]):hover {
+  border-color: var(--color-accent-red-3);
+  background-color: var(--color-background-white) !important;
+}
+
+.sap-crm-input--container--error:not(.sap-crm-input__input):not([disabled]):focus-within {
+  outline: unset !important;
+  background: var(--color-background-white) !important;
+  box-shadow: 0 0 0 0.125rem var(--color-accent-red-4) !important;
+  border-radius: 0.25rem;
+}
+
+.sap-crm-input--container[disabled] {
+  box-shadow: none;
+  background: linear-gradient(0deg, var(--color-neutral-4), var(--color-neutral-2)) 0 100%/100% 0.0625rem no-repeat border-box var(--color-background-white);
+}
+
+/* ========================================
+   Multiline Input
+   ======================================== */
+
+.sap-crm-input--multiline--container {
+  padding: 0.25rem;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+.sap-crm-input--multiline--inner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 0.25rem;
+}
+
+.sap-crm-input--multiline input {
+  padding: 0.25rem 0.5rem;
+  flex: 1 1 auto;
+  max-width: unset !important;
+}
+
+/* ========================================
+   Textarea
+   ======================================== */
+
+.sap-crm-input--textarea:active, .sap-crm-input--textarea:has(textarea:focus) {
+  background-color: var(--color-background-white);
+  outline: unset !important;
+  box-shadow: 0 0 0 0.125rem var(--color-primary-4);
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  background: unset !important;
+  border-color: transparent !important;
+}
+
+.sap-crm-input--textarea:not(.sap-crm-input--textarea--disabled):not(.sap-crm-input--textarea--error):hover {
+  background-color: var(--color-background-white);
+  border-color: var(--color-primary-3);
+  color: var(--color-neutral-7);
+  background: linear-gradient(0deg, var(--color-primary-4), var(--color-primary-4)) 0 100%/100% 0.0625rem no-repeat border-box border-box var(--color-background-white);
+}
+
+.sap-crm-input--textarea--disabled, .sap-crm-input--textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.sap-crm-input--textarea textarea {
+  resize: none;
+  background: transparent !important;
+}
+
+.sap-crm-input--textarea--error {
+  border-color: var(--color-accent-red-3);
+  background-color: var(--color-accent-red-2) !important;
+  background: linear-gradient(0deg, var(--color-accent-red-4), var(--color-accent-red-4)) 0 100%/100% 0.0625rem no-repeat border-box border-box var(--color-background-white);
+}
+
+.sap-crm-input--textarea--error:active, .sap-crm-input--textarea--error:has(textarea:focus) {
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0 0.125rem var(--color-accent-red-4) !important;
+  background-color: var(--color-background-white) !important;
+  border-color: transparent !important;
+  background: unset !important;
+}
+
+.sap-crm-input--textarea--error:hover {
+  background-color: var(--color-background-white) !important;
+  border-color: var(--color-accent-red-3);
+  color: var(--color-neutral-7);
+  background: linear-gradient(0deg, var(--color-accent-red-4), var(--color-accent-red-4)) 0 100%/100% 0.0625rem no-repeat border-box border-box var(--color-background-white);
+}
+
+/* ========================================
+   Inline Input
+   ======================================== */
+
+.sap-crm-input--inline input {
+  border: 0;
+  border-radius: initial;
+  line-height: 1.4375rem;
+  padding: 0 0.25rem;
+  background: inherit;
+  text-align: inherit;
+  box-shadow: inset 0 -0.0625rem 0 var(--color-neutral-4);
+}
+
+.sap-crm-input--inline input:focus {
+  border-color: var(--color-primary-4);
+  box-shadow: none;
+}
+
+.sap-crm-input--inline input:hover {
+  box-shadow: inset 0 -0.0625rem 0 var(--color-primary-4);
+}
+
+.sap-crm-input.sap-crm-text--right {
+  text-align: right;
+}
+
+.sap-crm-rtl .sap-crm-input.sap-crm-text--right {
+  text-align: left;
+}
+
+/* ========================================
+   Input Icons and Buttons
+   ======================================== */
+
+.sap-crm-input__icon {
+  color: var(--color-neutral-5);
+  position: absolute;
+  left: 0.75rem;
+  z-index: 1;
+}
+
+.sap-crm-input__icon:disabled, .sap-crm-input__icon[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+}
+
+.sap-crm-input__icon--multiple {
+  padding-left: 0.5rem;
+}
+
+.sap-crm-rtl .sap-crm-input__icon {
+  right: 0.75rem;
+  left: unset;
+}
+
+.sap-crm-input__btn {
+  color: var(--color-neutral-5) !important;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.sap-crm-input__btn:disabled, .sap-crm-input__btn[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+}
+
+.sap-crm-rtl .sap-crm-input__btn {
+  right: unset;
+  left: 0;
+}
+
+.sap-crm-input__wrap {
+  position: relative;
+}
+
+.sap-crm-input__wrap--active {
+  z-index: 10;
+}
+
+.sap-crm-input--btntray {
+  padding: 0.5rem 0;
+}
+
+/* ========================================
+   Table Input
+   ======================================== */
+
+.sap-crm-input--table {
+  height: 3.5rem;
+  position: relative;
+  margin: -0.0625rem -2rem;
+  z-index: 5;
+}
+
+.sap-crm-input--table input {
+  height: 100%;
+  border-radius: 0;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* ========================================
+   Error States
+   ======================================== */
+
+.sap-crm-input--error:focus-within {
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0 0.125rem var(--color-accent-red-4) !important;
+}
+
+.sap-crm-input--error--textarea, .sap-crm-input--error input:not(.sap-crm-input__input) {
+  background: linear-gradient(0deg, var(--color-accent-red-4), var(--color-accent-red-4)) 0 100%/100% 0.0625rem no-repeat border-box !important;
+  border: 1px solid var(--color-accent-red-3);
+  background-color: var(--color-accent-red-2) !important;
+}
+
+.sap-crm-input--error--textarea:active:enabled, .sap-crm-input--error--textarea:focus:enabled, .sap-crm-input--error input:not(.sap-crm-input__input):active:enabled, .sap-crm-input--error input:not(.sap-crm-input__input):focus:enabled {
+  z-index: 1;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0 0.125rem var(--color-accent-red-4) !important;
+  background-color: var(--color-background-white);
+  border-color: transparent !important;
+  background: unset !important;
+}
+
+.sap-crm-input--error--textarea:hover, .sap-crm-input--error input:not(.sap-crm-input__input):hover {
+  background-color: var(--color-background-white) !important;
+  border-color: var(--color-accent-red-3) !important;
+  color: var(--color-neutral-7);
+  background: linear-gradient(0deg, var(--color-accent-red-4), var(--color-accent-red-4)) 0 100%/100% 0.0625rem no-repeat border-box border-box var(--color-background-white);
+}
+
+.sap-crm-input--error--textarea {
+  border-color: var(--color-accent-red-3);
+  background-color: var(--color-accent-red-2) !important;
+  background: linear-gradient(0deg, var(--color-accent-red-4), var(--color-accent-red-4)) 0 100%/100% 0.0625rem no-repeat border-box border-box var(--color-background-white);
+}
+
+.sap-crm-input--error--textarea:active, .sap-crm-input--error--textarea:has(textarea:focus) {
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0 0.125rem var(--color-accent-red-4) !important;
+  background-color: var(--color-background-white) !important;
+  border-color: transparent !important;
+  background: unset !important;
+}
+
+.sap-crm-input--error--textarea:hover {
+  background-color: var(--color-background-white) !important;
+  border-color: var(--color-accent-red-3);
+  color: var(--color-neutral-7);
+  background: linear-gradient(0deg, var(--color-accent-red-4), var(--color-accent-red-4)) 0 100%/100% 0.0625rem no-repeat border-box border-box var(--color-background-white);
+}
+
+.sap-crm-input--error--textarea--error {
+  background: var(--color-accent-red-2) !important;
+}
+
+.sap-crm-input--error--textarea--error:active, .sap-crm-input--error--textarea--error:has(textarea:focus) {
+  background: var(--color-background-white) !important;
+  box-shadow: unset;
+}
+
+.sap-crm-input--error--textarea--error:hover {
+  background: var(--color-background-white) !important;
+}
+
+.sap-crm-input--error--inline input, .sap-crm-input--error--inline input:hover {
+  color: var(--color-accent-red-4);
+  box-shadow: inset 0 -0.0625rem 0 var(--color-neutral-4);
+}
+
+.sap-crm-input--error--inline input:focus {
+  box-shadow: none;
+}
+
+/* ========================================
+   Flag Icon
+   ======================================== */
+
+.sap-crm-input--flag__icon {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.6rem;
+  z-index: 1;
+}
+
+.sap-crm-rtl .sap-crm-input--flag__icon {
+  right: 0.6rem;
+  left: unset;
+}
+
+/* ========================================
+   Border Radius Modifiers
+   ======================================== */
+
+.sap-crm-input--brnone input {
+  border-radius: 0;
+}
+
+.sap-crm-input--brnoneleft input {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.sap-crm-input--brnoneright input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* ========================================
+   Spacing Modifiers
+   ======================================== */
+
+.sap-crm-input--spaceleft input {
+  padding-left: 2.5rem;
+}
+
+.sap-crm-input--spaceright input {
+  padding-right: 2.5rem;
+}
+
+.sap-crm-rtl .sap-crm-input--spaceleft input {
+  padding-right: 2.5rem;
+  padding-left: unset;
+}
+
+.sap-crm-input--qvheader input {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.sap-crm-rtl.sap-crm-input--spaceleft input {
+  padding-right: 2.5rem;
+  padding-left: 1rem;
+}
+
+.sap-crm-rtl.sap-crm-input--spaceright input {
+  padding-left: 2.5rem;
+  padding-right: 1rem;
+}
+
+.sap-crm-rtl.sap-crm-input--space input {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+/* ========================================
+   Multi-Combo / Multi-Input Styles
+   ======================================== */
+
+.sap-crm-multi-combo {
+  display: flex;
+  align-items: center;
+  padding-inline-start: 0.25rem;
+  background-color: var(--color-background-white);
+}
+
+.sap-crm-multi-combo, .sap-crm-multi-combo--multi-input {
+  height: var(--multi-combo-height, 2.5rem);
+}
+
+.sap-crm-multi-combo--multi-input--container {
+  height: unset;
+  padding-bottom: 0.0625rem;
+}
+
+.sap-crm-multi-combo--error {
+  background-color: var(--color-accent-red-2) !important;
+  border: 1px solid var(--color-accent-red-3);
+}
+
+.sap-crm-multi-combo--error:hover {
+  background-color: var(--color-background-white) !important;
+}
+
+.sap-crm-multi-combo--brnone {
+  border-radius: 0;
+}
+
+.sap-crm-multi-combo--brnoneleft {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.sap-crm-multi-combo--brnoneright {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.sap-crm-multi-combo--inner {
+  display: flex;
+  align-items: center;
+  flex: 1 1 auto;
+}
+
+.sap-crm-multi-combo--inline {
+  border: 0;
+  border-radius: initial;
+  padding: initial;
+  line-height: 1.4375rem;
+  height: 1.4375rem;
+  background: inherit;
+  text-align: start;
+}
+
+.sap-crm-multi-combo--input {
+  width: 100%;
+  height: 1.5rem;
+  display: inline-block;
+  flex: 1 1 2rem;
+  padding-inline-start: 0.25rem;
+  font-family: "72", Helvetica, -apple-system, Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  text-align: inherit;
+  color: var(--color-neutral-7);
+  background: inherit;
+}
+
+.sap-crm-multi-combo--input::-moz-placeholder {
+  font-style: italic;
+  color: var(--color-neutral-5);
+}
+
+.sap-crm-multi-combo--input::placeholder {
+  font-style: italic;
+  color: var(--color-neutral-5);
+}
+
+.sap-crm-multi-combo--input--error {
+  color: var(--color-accent-red-4);
+}
+
+.sap-crm-multi-combo--button {
+  flex: 0 0;
+  max-height: var(--multi-combo-action-button-size, 2.375rem);
+  min-width: var(--multi-combo-action-button-size, 2.375rem);
+}
+
+.sap-crm-multi-combo--token {
+  overflow: unset;
+  white-space: nowrap;
+}
+
+.sap-crm-multi-combo--token--inline {
+  height: 21px;
+  padding: 0 0.5rem;
+}
+
+.sap-crm-multi-combo--token-container {
+  min-width: 0;
+}
+
+.sap-crm-tokenizer--container {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+}
+
+.sap-crm-tokenizer--container [overflow] {
+  display: none;
+}
+
+.sap-crm-tokenizer--show-more {
+  cursor: pointer;
+  color: var(--color-neutral-5);
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.25rem 0.5rem;
+}
+
+
+/* ========================================
+   BADGES
+   ======================================== */
+
+/**
+ * SAP CRM Badge Styles
+ * Status indicators and labels with semantic colors
+ * 
+ * Usage:
+ * <span class="sap-crm-badge sap-crm-badge--success">Active</span>
+ * <span class="sap-crm-badge sap-crm-badge--error">Error</span>
+ */
+
+.sap-crm-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 0.25rem;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.sap-crm-badge--primary {
+  background: var(--color-primary-1);
+  color: var(--color-primary-5);
+}
+
+.sap-crm-badge--success {
+  background: var(--color-accent-green-1);
+  color: var(--color-accent-green-5);
+}
+
+.sap-crm-badge--error {
+  background: var(--color-accent-red-1);
+  color: var(--color-accent-red-5);
+}
+
+.sap-crm-badge--warning {
+  background: var(--color-accent-yellow-1);
+  color: var(--color-accent-yellow-5);
+}
+
+.sap-crm-badge--info {
+  background: var(--color-primary-1);
+  color: var(--color-primary-5);
+}
+
+.sap-crm-badge--neutral {
+  background: var(--color-neutral-1);
+  color: var(--color-neutral-6);
+}
+
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+/**
+ * SAP CRM Button Styles
+ * Extracted from web-components library
+ * Can be used in custom UI projects to apply SAP CRM button styling
+ * 
+ * Usage: 
+ * 1. Include this CSS file in your project
+ * 2. Apply the class names to your button elements
+ * 
+ * Example:
+ * <button class="sap-crm-btn sap-crm-btn--primary sap-crm-btn--md">Primary Button</button>
+ * <button class="sap-crm-btn sap-crm-btn--secondary sap-crm-btn--sm">Secondary Button</button>
+ */
+
+.sap-crm-btn {
+  font-family: "72", Helvetica, -apple-system, Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-neutral-5);
+  background: transparent;
+  line-height: 1.5rem;
+  border: 0.0625rem solid transparent;
+  border-radius: 0.5rem;
+  padding: 0.4375rem 1rem;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  white-space: nowrap;
+  transition-property: background, border, color, transform, opacity;
+  transition-duration: 0.1s;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sap-crm-btn__flag {
+  margin: 0.5rem;
+}
+
+.sap-crm-btn__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.25rem;
+  border-radius: 0.75rem;
+  position: absolute;
+  bottom: -0.25rem;
+  left: calc(100% - 0.5rem);
+  pointer-events: none;
+}
+
+.sap-crm-btn__badge--top {
+  top: -0.85rem;
+  bottom: unset;
+}
+
+.sap-crm-btn--xsm {
+  padding-top: 0;
+  padding-bottom: 0;
+  border: initial;
+}
+
+.sap-crm-btn--xsm--icon_only {
+  padding: 0.125rem;
+}
+
+.sap-crm-btn--sm {
+  height: var(--button-height-sm, unset);
+  padding: var(--button-padding-y-sm, 0.1875rem) 0.9375rem var(--button-padding-y-sm, 0.1875rem) 0.6875rem;
+}
+
+.sap-crm-btn--sm--text_only {
+  padding: var(--button-padding-y-sm, 0.1875rem) 0.9375rem;
+}
+
+.sap-crm-btn--sm--icon_only {
+  padding: var(--button-padding-sm-icon-only, 0.3125rem);
+}
+
+.sap-crm-btn--md {
+  height: var(--button-height-md, unset);
+  padding: var(--button-padding-y-md, 0.4375rem) 0.9375rem var(--button-padding-y-md, 0.4375rem) 0.6875rem;
+}
+
+.sap-crm-btn--md--text_only {
+  padding: var(--button-padding-y-md, 0.4375rem) 0.9375rem;
+}
+
+.sap-crm-btn--md--icon_only {
+  padding: var(--button-padding-md-icon-only, 0.5625rem);
+}
+
+.sap-crm-btn--lg {
+  height: var(--button-height-lg, unset);
+  padding: var(--button-padding-y-lg, 0.6875rem) 0.9375rem 0.6875rem var(--button-padding-y-lg, 0.6875rem);
+}
+
+.sap-crm-btn--lg--text_only {
+  padding: var(--button-padding-y-lg, 0.6875rem) 0.9375rem;
+}
+
+.sap-crm-btn--lg--icon_only {
+  padding: var(--button-padding-lg-icon-only, 0.8125rem);
+}
+
+.sap-crm-btn:hover:enabled {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.sap-crm-btn:active:enabled, .sap-crm-btn:hover:enabled {
+  color: var(--color-primary-6);
+}
+
+.sap-crm-btn:focus-visible:not(.sap-crm-btn--disabled), .sap-crm-btn:focus-visible:not(:disabled) {
+  box-shadow: 0 0 0 0.125rem var(--color-primary-4), 0 0 0.125rem var(--color-background-white);
+  z-index: 2;
+}
+
+.sap-crm-btn:focus-visible:not(.sap-crm-btn--disabled) .sap-crm-icontrol__wrap--checkbox, .sap-crm-btn:focus-visible:not(.sap-crm-btn--disabled) .sap-crm-icontrol__wrap--radio, .sap-crm-btn:focus-visible:not(:disabled) .sap-crm-icontrol__wrap--checkbox, .sap-crm-btn:focus-visible:not(:disabled) .sap-crm-icontrol__wrap--radio {
+  background-color: var(--color-background-white);
+}
+
+.sap-crm-btn--disabled, .sap-crm-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.sap-crm-btn--neutrallight {
+  color: var(--color-neutral-5);
+}
+
+.sap-crm-btn--neutrallight:hover:enabled {
+  background: var(--color-background-white);
+  color: var(--color-neutral-5);
+  border: 1px solid var(--color-neutral-3);
+}
+
+.sap-crm-btn--neutrallight:active:enabled {
+  background: var(--color-background-white);
+  color: var(--color-primary-5);
+  border-color: var(--color-primary-5);
+  box-shadow: none !important;
+}
+
+.sap-crm-btn--neutrallight:focus-visible:not(.sap-crm-btn--disabled), .sap-crm-btn--neutrallight:focus-visible:not(:disabled) {
+  background: var(--color-background-white);
+  box-shadow: 0 0 0 0.125rem var(--color-primary-6);
+}
+
+.sap-crm-btn--neutraldark {
+  color: var(--color-neutral-7);
+}
+
+.sap-crm-btn--neutraldark:hover:enabled {
+  color: var(--color-neutral-7);
+  background: var(--color-neutral-1);
+  border: 1px solid var(--color-neutral-3);
+}
+
+.sap-crm-btn--neutraldark:active:enabled {
+  background: var(--color-background-white);
+  color: var(--color-primary-5);
+  border-color: var(--color-primary-5);
+  box-shadow: none !important;
+}
+
+.sap-crm-btn--neutraldark:disabled {
+  opacity: 0.5;
+}
+
+.sap-crm-btn--neutraldark:focus-visible:not(.sap-crm-btn--disabled), .sap-crm-btn--neutraldark:focus-visible:not(:disabled) {
+  background: var(--color-background-white);
+  box-shadow: 0 0 0 0.125rem var(--color-primary-6);
+}
+
+.sap-crm-btn--primary {
+  color: var(--color-background-white);
+  background: var(--color-primary-4);
+  border-color: transparent;
+}
+
+.sap-crm-btn--primary:hover:enabled {
+  color: var(--color-background-white);
+  background: var(--color-primary-5);
+}
+
+.sap-crm-btn--primary:active:enabled {
+  background: var(--color-background-white) !important;
+  color: var(--color-primary-4);
+  box-shadow: 0 0 0 0.0625rem var(--color-primary-4) !important;
+}
+
+.sap-crm-btn--primary:focus-visible:not(.sap-crm-btn--disabled), .sap-crm-btn--primary:focus-visible:not(:disabled) {
+  box-shadow: 0 0 0 0.125rem var(--color-background-white), 0 0 0 0.25rem var(--color-primary-4);
+  background: var(--color-primary-4);
+}
+
+.sap-crm-btn--primary:disabled {
+  opacity: 0.5;
+}
+
+.sap-crm-btn--primaryclean {
+  color: var(--color-primary-5);
+}
+
+.sap-crm-btn--primaryclean:hover:enabled {
+  color: var(--color-primary-5);
+  background: var(--color-neutral-1);
+  border: 1px solid var(--color-neutral-3);
+}
+
+.sap-crm-btn--primaryclean:active:enabled {
+  color: var(--color-primary-5);
+  background: var(--color-background-white);
+  border-color: var(--color-primary-5) !important;
+  box-shadow: none !important;
+}
+
+.sap-crm-btn--primaryclean:focus-visible:not(.sap-crm-btn--disabled), .sap-crm-btn--primaryclean:focus-visible:not(:disabled) {
+  background: var(--color-background-white);
+  box-shadow: 0 0 0 0.125rem var(--color-primary-6);
+  border: 1px solid transparent;
+}
+
+.sap-crm-btn--primaryclean--disabled, .sap-crm-btn--primaryclean:disabled {
+  opacity: 0.5;
+}
+
+.sap-crm-btn--primarycleandark {
+  color: var(--color-primary-5);
+}
+
+.sap-crm-btn--primarycleandark:hover:enabled {
+  color: var(--color-primary-6);
+}
+
+.sap-crm-btn--primarycleandark:active:enabled {
+  color: var(--color-primary-5);
+}
+
+.sap-crm-btn--primarycleandark:disabled {
+  background: var(--color-primary-4);
+}
+
+.sap-crm-btn--secondary {
+  background: var(--color-background-white);
+  display: inline-flex;
+  align-items: center;
+}
+
+.sap-crm-btn--secondary, .sap-crm-btn--secondary:hover:enabled {
+  color: var(--color-primary-5);
+  border-color: var(--color-neutral-3);
+}
+
+.sap-crm-btn--secondary:hover:enabled {
+  background: var(--color-neutral-1);
+}
+
+.sap-crm-btn--secondary:active:enabled {
+  color: var(--color-primary-4);
+  background: var(--color-background-white);
+  border-color: var(--color-primary-5);
+  box-shadow: none !important;
+}
+
+.sap-crm-btn--secondary:disabled {
+  opacity: 0.5;
+}
+
+.sap-crm-btn--secondary:focus-visible:not(.sap-crm-btn--disabled), .sap-crm-btn--secondary:focus-visible:not(:disabled) {
+  outline: 1px solid var(--color-neutral-3);
+  outline-offset: 3px;
+  border-color: transparent;
+  box-shadow: 0 0 0 0.125rem var(--color-primary-6);
+}
+
+.sap-crm-btn--secondary__error {
+  border: 0.0625rem solid var(--color-accent-red-4) !important;
+}
+
+.sap-crm-btn--secondary__error:hover:enabled {
+  border-color: var(--color-accent-red-4) !important;
+}
+
+.sap-crm-btn--negative {
+  color: var(--color-accent-red-4);
+  background: var(--color-accent-red-1);
+}
+
+.sap-crm-btn--negative:hover:enabled {
+  color: var(--color-accent-red-4);
+  background: var(--color-accent-red-2);
+  border: 1px solid var(--color-accent-red-1);
+}
+
+.sap-crm-btn--negative:active:enabled {
+  color: var(--color-accent-red-4);
+  background: var(--color-background-white);
+  border-color: var(--color-accent-red-4);
+}
+
+.sap-crm-btn--negative:disabled {
+  opacity: 0.5;
+}
+
+.sap-crm-btn--negative:focus-visible:not(.sap-crm-btn--disabled), .sap-crm-btn--negative:focus-visible:not(:disabled) {
+  box-shadow: 0 0 0 0.125rem var(--color-primary-6);
+  border-color: var(--color-accent-red-1);
+}
+
+.sap-crm-btn--neutralborder {
+  color: var(--color-neutral-5);
+  border-color: var(--color-neutral-3);
+}
+
+.sap-crm-btn--neutralborder:hover:enabled {
+  border-color: var(--color-neutral-4);
+}
+
+.sap-crm-btn--neutralborder:active:enabled {
+  border-color: var(--color-neutral-5);
+}
+
+.sap-crm-btn--neutralborder:disabled {
+  box-shadow: unset;
+  opacity: 0.5;
+  color: var(--color-neutral-5);
+}
+
+.sap-crm-btn--faded {
+  opacity: 0.65;
+}
+
+.sap-crm-btn--faded:active:enabled, .sap-crm-btn--faded:hover:enabled {
+  opacity: 1;
+}
+
+.sap-crm-btn--linkedin {
+  color: #0371ae;
+}
+
+.sap-crm-btn--linkedin:hover:enabled {
+  color: rgb(1.7033898305, 64.1610169492, 98.7966101695);
+}
+
+.sap-crm-btn--linkedin:active:enabled {
+  color: #0371ae;
+}
+
+.sap-crm-btn--success {
+  color: var(--color-accent-green-5);
+}
+
+.sap-crm-btn--success:hover:enabled {
+  color: var(--color-accent-green-6);
+}
+
+.sap-crm-btn--success:active:enabled {
+  color: var(--color-accent-green-5);
+}
+
+.sap-crm-btn--caution {
+  color: var(--color-accent-orange-5);
+}
+
+.sap-crm-btn--caution:hover:enabled {
+  color: var(--color-accent-orange-6);
+}
+
+.sap-crm-btn--caution:active:enabled {
+  color: var(--color-accent-orange-5);
+}
+
+.sap-crm-btn--error {
+  color: var(--color-accent-red-5);
+}
+
+.sap-crm-btn--error:hover:enabled {
+  color: var(--color-accent-red-6);
+}
+
+.sap-crm-btn--error:active:enabled {
+  color: var(--color-accent-red-5);
+}
+
+.sap-crm-btn--info {
+  color: var(--color-primary-5);
+}
+
+.sap-crm-btn--info:hover:enabled {
+  color: var(--color-primary-6);
+}
+
+.sap-crm-btn--info:active:enabled {
+  color: var(--color-primary-5);
+}
+
+.sap-crm-btn--neutral {
+  color: var(--color-neutral-6);
+}
+
+.sap-crm-btn--neutral:hover:enabled {
+  color: var(--color-neutral-7);
+}
+
+.sap-crm-btn--neutral:active:enabled {
+  color: var(--color-neutral-6);
+}
+
+.sap-crm-btn--checkbox {
+  padding: var(--checkbox-padding, 0.563rem);
+  display: inline-flex;
+  white-space: unset;
+}
+
+.sap-crm-btn--checkbox__labelled {
+  padding: var(--checkbox-labelled-padding-y, 0.438rem) 0.563rem;
+}
+
+.sap-crm-btn--radio {
+  padding: 0.563rem;
+  border-radius: 0.5rem;
+  min-width: 2.5rem;
+  display: inline-flex;
+  white-space: unset;
+}
+
+.sap-crm-btn--radio__labelled {
+  padding: 0.4375rem 0.5rem;
+}
+
+.sap-crm-btn--radio--disabled, .sap-crm-btn--radio:disabled, .sap-crm-btn--switch--disabled, .sap-crm-btn--switch:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.sap-crm-btn--toggle {
+  display: inline-flex;
+  justify-content: center;
+  min-width: 2rem;
+  padding: var(--toggle-button-padding-top, 0.25rem) 0.25rem 0.25rem 0.25rem;
+  background: var(--color-background-white);
+  color: var(--color-neutral-5);
+  border-color: var(--color-neutral-3);
+  line-height: 1.25rem;
+}
+
+.sap-crm-btn--toggle, .sap-crm-btn--toggle--icon {
+  height: var(--toggle-button-height, 2rem);
+}
+
+.sap-crm-btn--toggle:disabled {
+  color: var(--color-neutral-3);
+  border-color: var(--color-neutral-3);
+}
+
+.sap-crm-btn--toggle:hover:enabled {
+  color: var(--color-neutral-6);
+  border-color: var(--color-neutral-3);
+  background: var(--color-neutral-1);
+}
+
+.sap-crm-btn--toggle:focus-visible {
+  box-shadow: 0 0 0 0 !important;
+  outline: solid var(--color-primary-6) 2px;
+  outline-offset: -4px;
+  border-style: solid;
+}
+
+.sap-crm-btn--toggle--fullwidth {
+  display: flex !important;
+  justify-content: center;
+}
+
+.sap-crm-btn--toggle--primary {
+  color: var(--color-primary-5);
+  background: var(--color-primary-1);
+  border-color: var(--color-primary-5) !important;
+  border-style: solid !important;
+}
+
+.sap-crm-btn--toggle--primary:active:enabled {
+  color: var(--color-primary-5);
+  border-color: var(--color-primary-5);
+}
+
+.sap-crm-btn--toggle--primary:hover:enabled {
+  color: var(--color-primary-5);
+  border-color: var(--color-primary-5) !important;
+  background: var(--color-primary-2) !important;
+}
+
+.sap-crm-btn--toggle--primary:disabled {
+  color: var(--color-primary-5);
+  background: var(--color-primary-1);
+  border-color: var(--color-primary-5);
+  opacity: 0.5;
+}
+
+.sap-crm-btn--toggle--primary:focus-visible {
+  box-shadow: 0 0 0 0 !important;
+  outline: solid var(--color-primary-6) 2px;
+  outline-offset: -4px;
+}
+
+.sap-crm-btn--toggle--teal {
+  color: var(--color-accent-teal-5);
+  background: var(--color-accent-teal-1);
+  border-color: var(--color-accent-teal-5) !important;
+  border-style: solid !important;
+}
+
+.sap-crm-btn--toggle--teal:active:enabled {
+  color: var(--color-accent-teal-5);
+  border-color: var(--color-accent-teal-5);
+}
+
+.sap-crm-btn--toggle--teal:hover:enabled {
+  color: var(--color-accent-teal-5);
+  border-color: var(--color-accent-teal-5) !important;
+  background: var(--color-accent-teal-2) !important;
+}
+
+.sap-crm-btn--toggle--teal:disabled {
+  color: var(--color-accent-teal-5);
+  background: var(--color-accent-teal-1);
+  border-color: var(--color-accent-teal-5);
+  opacity: 0.5;
+}
+
+.sap-crm-btn--toggle--teal:focus-visible {
+  box-shadow: 0 0 0 0 !important;
+  outline: solid var(--color-primary-6) 2px;
+  outline-offset: -4px;
+}
+
+.sap-crm-btn--toggle--blue {
+  color: var(--color-accent-blue-5);
+  background: var(--color-accent-blue-1);
+  border-color: var(--color-accent-blue-5) !important;
+  border-style: solid !important;
+}
+
+.sap-crm-btn--toggle--blue:active:enabled {
+  color: var(--color-accent-blue-5);
+  border-color: var(--color-accent-blue-5);
+}
+
+.sap-crm-btn--toggle--blue:hover:enabled {
+  color: var(--color-accent-blue-5);
+  border-color: var(--color-accent-blue-5) !important;
+  background: var(--color-accent-blue-2) !important;
+}
+
+.sap-crm-btn--toggle--blue:disabled {
+  color: var(--color-accent-blue-5);
+  background: var(--color-accent-blue-1);
+  border-color: var(--color-accent-blue-5);
+  opacity: 0.5;
+}
+
+.sap-crm-btn--toggle--blue:focus-visible {
+  box-shadow: 0 0 0 0 !important;
+  outline: solid var(--color-primary-6) 2px;
+  outline-offset: -4px;
+}
+
+.sap-crm-btn--toggle--yellow {
+  color: var(--color-accent-yellow-5);
+  background: var(--color-accent-yellow-1);
+  border-color: var(--color-accent-yellow-5) !important;
+  border-style: solid !important;
+}
+
+.sap-crm-btn--toggle--yellow:active:enabled {
+  color: var(--color-accent-yellow-5);
+  border-color: var(--color-accent-yellow-5);
+}
+
+.sap-crm-btn--toggle--yellow:hover:enabled {
+  color: var(--color-accent-yellow-5);
+  border-color: var(--color-accent-yellow-5) !important;
+  background: var(--color-accent-yellow-2) !important;
+}
+
+.sap-crm-btn--toggle--yellow:disabled {
+  color: var(--color-accent-yellow-5);
+  background: var(--color-accent-yellow-1);
+  border-color: var(--color-accent-yellow-5);
+  opacity: 0.5;
+}
+
+.sap-crm-btn--toggle--yellow:focus-visible {
+  box-shadow: 0 0 0 0 !important;
+  outline: solid var(--color-primary-6) 2px;
+  outline-offset: -4px;
+}
+
+.sap-crm-btn--toggle--red {
+  color: var(--color-accent-red-5);
+  background: var(--color-accent-red-1);
+  border-color: var(--color-accent-red-5) !important;
+  border-style: solid !important;
+}
+
+.sap-crm-btn--toggle--red:active:enabled {
+  color: var(--color-accent-red-5);
+  border-color: var(--color-accent-red-5);
+}
+
+.sap-crm-btn--toggle--red:hover:enabled {
+  color: var(--color-accent-red-5);
+  border-color: var(--color-accent-red-5) !important;
+  background: var(--color-accent-red-2) !important;
+}
+
+.sap-crm-btn--toggle--red:disabled {
+  color: var(--color-accent-red-5);
+  background: var(--color-accent-red-1);
+  border-color: var(--color-accent-red-5);
+  opacity: 0.5;
+}
+
+.sap-crm-btn--toggle--red:focus-visible {
+  box-shadow: 0 0 0 0 !important;
+  outline: solid var(--color-primary-6) 2px;
+  outline-offset: -4px;
+}
+
+.sap-crm-btn--toggle--green {
+  color: var(--color-success-5);
+  background: var(--color-success-1);
+  border-color: var(--color-success-5) !important;
+  border-style: solid !important;
+}
+
+.sap-crm-btn--toggle--green:active:enabled {
+  color: var(--color-success-5);
+  border-color: var(--color-success-5);
+}
+
+.sap-crm-btn--toggle--green:hover:enabled {
+  color: var(--color-success-5);
+  border-color: var(--color-success-5) !important;
+  background: var(--color-success-2) !important;
+}
+
+.sap-crm-btn--toggle--green:disabled {
+  color: var(--color-success-5);
+  background: var(--color-success-1);
+  border-color: var(--color-success-5);
+  opacity: 0.5;
+}
+
+.sap-crm-btn--toggle--green:focus-visible {
+  box-shadow: 0 0 0 0 !important;
+  outline: solid var(--color-primary-6) 2px;
+  outline-offset: -4px;
+}
+
+.sap-crm-btn--toggle--orange {
+  color: var(--color-accent-orange-5);
+  background: var(--color-accent-orange-1);
+  border-color: var(--color-accent-orange-5) !important;
+  border-style: solid !important;
+}
+
+.sap-crm-btn--toggle--orange:active:enabled {
+  color: var(--color-accent-orange-5);
+  border-color: var(--color-accent-orange-5);
+}
+
+.sap-crm-btn--toggle--orange:hover:enabled {
+  color: var(--color-accent-orange-5);
+  border-color: var(--color-accent-orange-5) !important;
+  background: var(--color-accent-orange-2) !important;
+}
+
+.sap-crm-btn--toggle--orange:disabled {
+  color: var(--color-accent-orange-5);
+  background: var(--color-accent-orange-1);
+  border-color: var(--color-accent-orange-5);
+  opacity: 0.5;
+}
+
+.sap-crm-btn--toggle--orange:focus-visible {
+  box-shadow: 0 0 0 0 !important;
+  outline: solid var(--color-primary-6) 2px;
+  outline-offset: -4px;
+}
+
+.sap-crm-btn--toggle--pink {
+  color: var(--color-accent-pink-5);
+  background: var(--color-accent-pink-1);
+  border-color: var(--color-accent-pink-5) !important;
+  border-style: solid !important;
+}
+
+.sap-crm-btn--toggle--pink:active:enabled {
+  color: var(--color-accent-pink-5);
+  border-color: var(--color-accent-pink-5);
+}
+
+.sap-crm-btn--toggle--pink:hover:enabled {
+  color: var(--color-accent-pink-5);
+  border-color: var(--color-accent-pink-5) !important;
+  background: var(--color-accent-pink-2) !important;
+}
+
+.sap-crm-btn--toggle--pink:disabled {
+  color: var(--color-accent-pink-5);
+  background: var(--color-accent-pink-1);
+  border-color: var(--color-accent-pink-5);
+  opacity: 0.5;
+}
+
+.sap-crm-btn--toggle--pink:focus-visible {
+  box-shadow: 0 0 0 0 !important;
+  outline: solid var(--color-primary-6) 2px;
+  outline-offset: -4px;
+}
+
+.sap-crm-btn--toggle--purple {
+  color: var(--color-accent-purple-5);
+  background: var(--color-accent-purple-1);
+  border-color: var(--color-accent-purple-5) !important;
+  border-style: solid !important;
+}
+
+.sap-crm-btn--toggle--purple:active:enabled {
+  color: var(--color-accent-purple-5);
+  border-color: var(--color-accent-purple-5);
+}
+
+.sap-crm-btn--toggle--purple:hover:enabled {
+  color: var(--color-accent-purple-5);
+  border-color: var(--color-accent-purple-5) !important;
+  background: var(--color-accent-purple-2) !important;
+}
+
+.sap-crm-btn--toggle--purple:disabled {
+  color: var(--color-accent-purple-5);
+  background: var(--color-accent-purple-1);
+  border-color: var(--color-accent-purple-5);
+  opacity: 0.5;
+}
+
+.sap-crm-btn--toggle--purple:focus-visible {
+  box-shadow: 0 0 0 0 !important;
+  outline: solid var(--color-primary-6) 2px;
+  outline-offset: -4px;
+}
+
+.sap-crm-btn--dropdown {
+  height: var(--drop-down-button-height, 2.5rem);
+  border-bottom: none !important;
+  border: 1px solid var(--color-neutral-3);
+  border-radius: 0.25rem !important;
+  background: linear-gradient(0deg, var(--color-neutral-4), var(--color-neutral-4)) 0 100%/100% 0.0625rem no-repeat border-box var(--color-background-white);
+  display: flex !important;
+  background-color: var(--color-background-white);
+}
+
+.sap-crm-btn--dropdown.sap-crm-btn--xsm {
+  height: unset;
+}
+
+.sap-crm-btn--dropdown:focus-visible:not(.sap-crm-btn--disabled), .sap-crm-btn--dropdown:focus-visible:not(:disabled) {
+  outline: unset !important;
+  border-color: transparent !important;
+  box-shadow: 0 0 0 0.125rem var(--color-primary-4);
+  z-index: unset;
+  background-color: var(--color-background-white) !important;
+  background: linear-gradient(0deg, var(--color-background-white), var(--color-background-white)) 0 100%/100% 0.0625rem no-repeat border-box border-box var(--color-background-white) !important;
+  border-radius: 0.25rem !important;
+}
+
+.sap-crm-btn--dropdown:hover:enabled {
+  background-color: var(--color-background-white);
+  border-color: var(--color-primary-3);
+  color: var(--color-neutral-7);
+  background: linear-gradient(0deg, var(--color-primary-4), var(--color-primary-4)) 0 100%/100% 0.0625rem no-repeat border-box border-box var(--color-background-white);
+}
+
+.sap-crm-btn--dropdown--popoverOpen {
+  box-shadow: 0 0 0 0.0625rem var(--color-neutral-3) !important;
+  border-color: transparent !important;
+}
+
+.sap-crm-btn--dropdown--flag {
+  height: var(--drop-down-button-height, 2.5rem);
+}
+
+.sap-crm-btn--dropdown--secondary {
+  color: var(--color-primary-5) !important;
+  box-shadow: 0 0 0 0.0625rem var(--color-neutral-3);
+}
+
+.sap-crm-btn--dropdown--secondary--curve {
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.sap-crm-btn--dropdown--secondary--curve:hover:enabled {
+  border-bottom-left-radius: 0.25rem !important;
+  border-bottom-right-radius: 0.25rem !important;
+}
+
+.sap-crm-btn--dropdown--secondary:hover:enabled {
+  background: var(--color-neutral-1);
+  border: 1px solid var(--color-neutral-3);
+}
+
+.sap-crm-btn--dropdown--secondary:focus-visible:enabled {
+  outline-offset: 4px;
+  outline: 1px solid var(--color-neutral-3);
+  border: 1px solid transparent;
+  box-shadow: 0 0 0 0.125rem var(--color-primary-5);
+  background: var(--color-background-white) !important;
+}
+
+.sap-crm-btn--dropdown--secondary:active:enabled {
+  outline-offset: unset;
+  box-shadow: unset;
+  outline: 1px solid var(--color-primary-5) !important;
+  background: var(--color-background-white) !important;
+}
+
+.sap-crm-btn--dropdown--secondary__error {
+  background: var(--color-accent-red-2);
+  border: 1px solid var(--color-accent-red-4) !important;
+  box-shadow: unset !important;
+}
+
+.sap-crm-btn--dropdown--secondary__error:focus-visible:not(.sap-crm-btn--disabled), .sap-crm-btn--dropdown--secondary__error:focus-visible:not(:disabled) {
+  box-shadow: 0 0 0 1px var(--color-accent-red-4) !important;
+}
+
+.sap-crm-btn--dropdown__text {
+  flex-grow: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.sap-crm-btn--dropdown__error {
+  background: linear-gradient(0deg, var(--color-accent-red-4), var(--color-accent-red-4)) 0 100%/100% 0.0625rem no-repeat border-box var(--color-background-white);
+  border-color: var(--color-accent-red-3);
+  background-color: var(--color-accent-red-2);
+}
+
+.sap-crm-btn--dropdown__error:hover:enabled {
+  background-color: var(--color-background-white);
+  border-color: var(--color-accent-red-3);
+  color: var(--color-neutral-7);
+  background: linear-gradient(0deg, var(--color-accent-red-4), var(--color-accent-red-4)) 0 100%/100% 0.0625rem no-repeat border-box border-box var(--color-background-white);
+}
+
+.sap-crm-btn--dropdown__error:focus-visible:not(.sap-crm-btn--disabled), .sap-crm-btn--dropdown__error:focus-visible:not(:disabled) {
+  background: linear-gradient(0deg, var(--color-background-white), var(--color-background-white)) 0 100%/100% 0.0625rem no-repeat border-box border-box var(--color-background-white);
+  color: var(--color-neutral-5);
+  border-color: transparent !important;
+  box-shadow: 0 0 0 0.125rem var(--color-accent-red-4);
+}
+
+.sap-crm-btn--dropdown__error--popoverOpen {
+  box-shadow: 0 0 0 0.0625rem var(--color-accent-red-3) !important;
+}
+
+/* ============================================ */
+/* Dropdown Select Styling                      */
+/* ============================================ */
+
+.sap-crm-input select {
+  width: 100%;
+  height: 2.5rem;
+  padding: 0 2.5rem 0 0.75rem;
+  border: 1px solid var(--color-neutral-3);
+  border-radius: 0.25rem;
+  background-color: var(--color-background-white);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23555' d='M8 11.4L3.6 7l.8-.8L8 9.8l3.6-3.6.8.8z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  color: var(--color-neutral-7);
+  font-family: "72", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sap-crm-input select:hover:not(:disabled) {
+  border-color: var(--color-primary-3);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%230070F2' d='M8 11.4L3.6 7l.8-.8L8 9.8l3.6-3.6.8.8z'/%3E%3C/svg%3E");
+}
+
+.sap-crm-input select:focus {
+  outline: none;
+  border-color: transparent;
+  box-shadow: 0 0 0 0.125rem var(--color-primary-4);
+}
+
+.sap-crm-input select:focus:hover {
+  border-color: transparent;
+}
+
+.sap-crm-input select:disabled {
+  background-color: var(--color-neutral-1);
+  color: var(--color-neutral-4);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.sap-crm-input select option {
+  padding: 0.5rem 0.75rem;
+  color: var(--color-neutral-7);
+  background-color: var(--color-background-white);
+}
+
+.sap-crm-input select option:hover,
+.sap-crm-input select option:focus {
+  background-color: var(--color-neutral-1);
+}
+
+.sap-crm-input select option:disabled {
+  color: var(--color-neutral-4);
+  cursor: not-allowed;
+}
+
+/* Error state for select */
+.sap-crm-input--error select {
+  border-color: var(--color-accent-red-3);
+  background-color: var(--color-accent-red-2);
+}
+
+.sap-crm-input--error select:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 0.125rem var(--color-accent-red-4);
+}
+
+.sap-crm-btn--filled, .sap-crm-btn--filled:hover:enabled {
+  color: var(--color-neutral-6);
+}
+
+.sap-crm-btn--popover {
+  height: auto;
+  border-radius: 0;
+  padding-top: 0.1875rem;
+  padding-bottom: 0.1875rem;
+  transition-property: border, color, transform, opacity;
+  transition-duration: 0.1s;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sap-crm-btn--popover:hover:enabled {
+  background: var(--color-background-normal);
+}
+
+.sap-crm-btn--tab, .sap-crm-btn--tablg, .sap-crm-btn--tabsm {
+  border-radius: 0;
+  padding-bottom: 0.9375rem;
+}
+
+.sap-crm-btn--tab, .sap-crm-btn--tabsm {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.sap-crm-btn--tablg {
+  font-size: 1rem;
+}
+
+.sap-crm-btn--tableicon {
+  padding-left: var(--button-tableicon-paddingleft, 0.5rem);
+  padding-right: var(--button-tableicon-paddingright, 0.5rem);
+  margin-top: var(--button-tableicon-margintop, -1.25rem);
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+
+.sap-crm-btn--pulseicon {
+  position: relative;
+}
+
+.sap-crm-btn--pulseicon:before {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 100%;
+  box-shadow: inset 0 0 0 0.625rem var(--color-primary-4);
+  opacity: 0.15;
+  margin: -1.75rem 0 0 -1.75rem;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  animation: pulse 1.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+
+.sap-crm-btn--brnone {
+  border-radius: 0;
+}
+
+.sap-crm-btn--brnoneleft {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.sap-crm-btn--brnoneright {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.sap-crm-btn--pagination {
+  color: var(--color-primary-5);
+}
+
+.sap-crm-btn--pagination:hover:enabled {
+  color: var(--color-primary-5);
+  background: var(--color-neutral-1);
+  box-shadow: 0.625rem var(--color-neutral-3);
+}
+
+.sap-crm-btn--pagination:active:enabled {
+  border-color: var(--color-primary-5);
+}
+
+.sap-crm-btn--pagination:active:enabled, .sap-crm-btn--selected {
+  color: var(--color-primary-5);
+  background: var(--color-background-white);
+}
+
+.sap-crm-btn--selected {
+  border: 1px solid var(--color-primary-5) !important;
+}
+
+.sap-crm-btn--selected:focus-visible {
+  box-shadow: solid var(--color-primary-6) 1px !important;
+  background: var(--color-background-white);
+  outline: solid var(--color-primary-5) 2px;
+  outline-offset: -4px;
+  border-style: solid !important;
+}
+
+.sap-crm-btn--fullwidth {
+  width: 100%;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sap-crm-btn--fullwidth .sap-crm-btn__icon--right {
+  float: right;
+}
+
+.sap-crm-btn__description {
+  font-style: 0.8125rem;
+  font-weight: 400;
+  color: var(--color-neutral-4);
+  line-height: 1rem;
+}
+
+.sap-crm-btn__description--withicon {
+  padding-left: 1.75rem;
+}
+
+.sap-crm-btn__avatar {
+  margin: 0 0.5rem 0 -0.25rem;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.sap-crm-btn__icon {
+  height: 1.25rem;
+  margin: 0.125rem 0.5rem 0.125rem -0.25rem;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+
+.sap-crm-btn__icon__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  background-color: var(--color-neutral-6);
+  color: #fff;
+}
+
+.sap-crm-btn__icon__overlay--editable {
+  cursor: pointer;
+}
+
+.sap-crm-btn__icon .sap-crm-image--container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.sap-crm-btn__icon .sap-crm-image--container[editable=false]:focus-visible {
+  box-shadow: 0 0 0 0.125rem var(--color-primary-4);
+}
+
+.sap-crm-btn__icon--right {
+  margin-right: -0.25rem;
+  margin-left: 0.5rem;
+}
+
+.sap-crm-btn__icon--only {
+  margin: 0 !important;
+  display: block !important;
+}
+
+.sap-crm-btn__icon--toggle {
+  margin: 0;
+}
+
+.sap-crm-btn__icon--dropdown {
+  color: var(--color-primary-5);
+}
+
+.sap-crm-btn__icon--dropdown:active:not(.sap-crm-btn__icon--dropdown--disabled), .sap-crm-btn__icon--dropdown:hover:not(.sap-crm-btn__icon--dropdown--disabled) {
+  color: var(--color-neutral-5) !important;
+}
+
+.sap-crm-btn__icon--dropdown--disabled, .sap-crm-btn__icon--dropdown:disabled {
+  color: var(--color-neutral-5);
+}
+
+.sap-crm-btn__icon--toggletext {
+  margin: 0 0.25rem 0 0;
+}
+
+.sap-crm-btn__icon--disabled {
+  pointer-events: none;
+}
+
+.sap-crm-rtl .sap-crm-btn__icon {
+  margin-left: 0.5rem;
+  margin-right: -0.25rem;
+}
+
+.sap-crm-rtl .sap-crm-btn__icon--right {
+  margin-left: -0.25rem;
+  margin-right: 0.5rem;
+}
+
+.sap-crm-rtl .sap-crm-btn__icon--only {
+  margin-right: -0.4375rem;
+  margin-left: -0.4375rem;
+}
+
+.sap-crm-rtl.sap-crm-btn--brnoneleft {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.sap-crm-rtl.sap-crm-btn--brnoneright {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+
+/* ========================================
+   TABLES
+   ======================================== */
+
+/**
+ * SAP CRM Table Styles
+ * Extracted from web-components library
+ * Can be used in custom UI projects to apply SAP CRM table styling
+ * 
+ * Includes styles for:
+ * - Legacy table implementation (sap-crm-table)
+ * - New table implementation (sap-crm-new-table)
+ * - Table headers, rows, cells
+ * - Fixed/sticky columns and headers
+ * - Row states (selected, disabled, busy, highlighted)
+ * - Row status indicators
+ * - Loading overlays
+ * - Responsive scrolling
+ * 
+ * Usage Examples:
+ * 
+ * Basic Legacy Table:
+ * <div class="sap-crm-table--wrapper">
+ *   <table class="sap-crm-table">
+ *     <thead>
+ *       <tr class="sap-crm-table__row">
+ *         <th class="sap-crm-table__cell sap-crm-table__cell--header">Header</th>
+ *       </tr>
+ *     </thead>
+ *     <tbody>
+ *       <tr class="sap-crm-table__row">
+ *         <td class="sap-crm-table__cell">Cell content</td>
+ *       </tr>
+ *     </tbody>
+ *   </table>
+ * </div>
+ * 
+ * New Table Implementation:
+ * <div class="sap-crm-new-table--wrapper">
+ *   <div class="sap-crm-new-table">
+ *     <!-- Table content -->
+ *   </div>
+ * </div>
+ * 
+ * Row with Status:
+ * <tr class="sap-crm-table__row">
+ *   <td class="sap-crm-table__cell">
+ *     <div class="sap-crm-table__state sap-crm-table__state--success"></div>
+ *     Content
+ *   </td>
+ * </tr>
+ * 
+ * Selected Row:
+ * <tr class="sap-crm-table__row sap-crm-table__row--selected">
+ *   <td class="sap-crm-table__cell">Content</td>
+ * </tr>
+ */
+
+/* ========================================
+   Legacy Table Base Styles
+   ======================================== */
+
+.sap-crm-table {
+  width: 100%;
+  min-width: max-content;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  border-collapse: collapse;
+  border-spacing: 0;
+  position: relative;
+}
+
+.sap-crm-table__header {
+  color: var(--color-neutral-5) !important;
+}
+
+.sap-crm-table--wrapper {
+  margin: 0;
+  position: relative;
+  overflow-x: auto;
+  overflow-y: visible;
+}
+
+.sap-crm-table--container {
+  display: flex;
+  position: relative;
+  padding: 0;
+  margin: 0 -1.5rem -0.75rem;
+}
+
+.sap-crm-table--container:hover > .sap-crm-table--scroll::-webkit-scrollbar-thumb, .sap-crm-table--container:hover > .sap-crm-table--tablebody::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-3);
+  -webkit-transition: background 0.5s ease-in-out;
+  transition: background 0.5s ease-in-out;
+}
+
+.sap-crm-table--tablebody {
+  flex-grow: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.sap-crm-table--scroll {
+  width: 1rem;
+  height: 100%;
+  overflow-y: auto;
+  right: 0;
+  top: 48px;
+  transition: visibility 1s;
+  z-index: 10;
+}
+
+.sap-crm-table__footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 3;
+}
+
+/* ========================================
+   Table Row States
+   ======================================== */
+
+.sap-crm-table__row:not(.sap-crm-table__row--busy):not(.sap-crm-table__row--selected):hover > :not(.sap-crm-table__cell--header) {
+  background: var(--color-neutral-1);
+}
+
+.sap-crm-table__row:not(.sap-crm-table__row--busy):not(.sap-crm-table__row--selected):hover > :not(.sap-crm-table__cell--header).sap-crm-table__cell--sepright:before {
+  background: hsla(0, 0%, 100%, 0);
+  background: linear-gradient(90deg, hsla(0, 0%, 100%, 0) 0, var(--color-background-faded));
+}
+
+.sap-crm-rtl .sap-crm-table__row:not(.sap-crm-table__row--busy):not(.sap-crm-table__row--selected):hover > :not(.sap-crm-table__cell--header).sap-crm-table__cell--sepright:before {
+  background: linear-gradient(270deg, hsla(0, 0%, 100%, 0), var(--color-background-faded));
+}
+
+.sap-crm-table__row--noborder td {
+  border-bottom-color: transparent;
+}
+
+.sap-crm-table__row--selected .sap-crm-table__cell:not(.sap-crm-table__cell--header) {
+  background-color: var(--color-primary-1);
+  border-bottom: 0.0625rem solid var(--color-primary-5);
+}
+
+.sap-crm-table__row--selected .sap-crm-table__cell:not(.sap-crm-table__cell--header).sap-crm-table__cell--sepright:before {
+  background: hsla(0, 0%, 100%, 0);
+  background: linear-gradient(90deg, hsla(0, 0%, 100%, 0) 0, var(--color-primary-1));
+}
+
+.sap-crm-table__row--selected:hover .sap-crm-table__cell:not(.sap-crm-table__cell-selected) {
+  background-color: var(--color-primary-2);
+}
+
+.sap-crm-table__row--disabled .sap-crm-table__cell:not(.sap-crm-table__cell--action):not(.sap-crm-table__cell--actionlist) {
+  color: var(--color-neutral-4);
+}
+
+.sap-crm-table__row--disabled .sap-crm-table__cell:not(.sap-crm-table__cell--action):not(.sap-crm-table__cell--actionlist) > * {
+  opacity: 0.5;
+}
+
+.sap-crm-table__row--busy {
+  background: var(--color-background-white);
+  opacity: 0.5;
+}
+
+.sap-crm-table__row__loader {
+  position: absolute;
+  left: 0;
+  height: 3rem;
+  width: 100%;
+  z-index: 1;
+  cursor: not-allowed;
+}
+
+.sap-crm-table__row__loader__spinner {
+  position: relative;
+  top: 25%;
+  left: 50%;
+}
+
+.sap-crm-table__row__loader__spinner:before {
+  position: absolute;
+  width: 100%;
+  content: "";
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+/* ========================================
+   Row Status Indicators
+   ======================================== */
+
+.sap-crm-table__state {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0.5rem;
+  height: 100%;
+}
+
+.sap-crm-table__state--success {
+  background-color: var(--color-accent-green-4);
+}
+
+.sap-crm-table__state--caution {
+  background-color: var(--color-accent-orange-4);
+}
+
+.sap-crm-table__state--error {
+  background-color: var(--color-accent-red-4);
+}
+
+.sap-crm-table__state--info {
+  background-color: var(--color-accent-blue-4);
+}
+
+.sap-crm-rtl .sap-crm-table__state {
+  left: unset;
+  right: 0;
+}
+
+/* ========================================
+   Table Cell Styles
+   ======================================== */
+
+.sap-crm-table__cell {
+  height: 3rem;
+  font-weight: 500;
+  color: var(--color-neutral-7);
+  background: var(--color-background-white);
+  text-align: left;
+  border-bottom: 0.0625rem solid var(--color-neutral-2);
+  padding: 0 2rem;
+  position: relative;
+  white-space: nowrap;
+}
+
+/* Minimal column-specific widths - only constrain what truly needs it */
+.sap-crm-table__cell:nth-child(1) {
+  /* Account ID column - keep narrow */
+  width: 120px;
+}
+
+.sap-crm-table__cell:nth-child(3) {
+  /* Prospect column - checkbox only */
+  width: 90px;
+}
+
+.sap-crm-table__cell:nth-child(5) {
+  /* Status column - short text values */
+  width: 130px;
+}
+
+.sap-crm-table__cell:focus-visible {
+  box-shadow: inset 0 0 0 0.125rem var(--color-primary-4), 0 0.125rem 0.5rem var(--color-neutral-3) !important;
+}
+
+.sap-crm-table__cell--right {
+  text-align: right;
+}
+
+.sap-crm-table__cell, .sap-crm-table__cell > * {
+  vertical-align: middle;
+}
+
+.sap-crm-table__cell--highlighted {
+  border-bottom: 0.0625rem solid var(--color-accent-yellow-4) !important;
+  background: var(--color-accent-yellow-1) !important;
+}
+
+.sap-crm-table__cell--header {
+  font-weight: 700;
+  color: var(--color-neutral-4);
+  box-shadow: 0 0.0625rem 0 var(--color-neutral-2) !important;
+  z-index: 2;
+}
+
+/* Navigation link styles for clickable table cells */
+.sap-crm-table__nav-link {
+  font-weight: 600;
+  color: var(--color-neutral-7);
+  cursor: pointer;
+  transition: text-decoration 0.1s ease;
+}
+
+.sap-crm-table__nav-link:hover {
+  text-decoration: underline;
+}
+
+.sap-crm-table__cell--footer {
+  z-index: 2;
+}
+
+.sap-crm-table__cell--massEdit {
+  border-bottom: unset;
+  z-index: 2 !important;
+  position: sticky;
+  top: 2.9375rem;
+  height: 3.125rem;
+}
+
+.sap-crm-table__cell--massEdit:after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  box-shadow: inset 0 0.0625rem 0 var(--color-neutral-2), inset 0 -0.0625rem 0 var(--color-neutral-2);
+}
+
+.sap-crm-table__cell--massEdit--fixed {
+  z-index: 3 !important;
+}
+
+.sap-crm-table__cell--massEdit--checkbox {
+  padding-inline-start: 2.75rem;
+}
+
+.sap-crm-table__cell--groupheader {
+  position: sticky;
+  padding-top: 0.25rem;
+}
+
+.sap-crm-table__cell--groupheader--left {
+  left: 2rem;
+  float: left;
+}
+
+.sap-crm-table__cell--groupheader--right {
+  right: 2rem;
+  float: right;
+}
+
+.sap-crm-table__cell--groupheader--state {
+  position: sticky;
+  height: 3rem;
+  float: left;
+  margin-left: -2rem;
+}
+
+/* ========================================
+   Fixed/Sticky Cell Positioning
+   ======================================== */
+
+.sap-crm-table__cell--fixedleft, .sap-crm-table__cell--fixedright {
+  position: sticky;
+  z-index: 1;
+}
+
+.sap-crm-table__cell--fixedleft.sap-crm-table__cell--fixedfooter, .sap-crm-table__cell--fixedleft.sap-crm-table__cell--fixedheader, .sap-crm-table__cell--fixedright.sap-crm-table__cell--fixedfooter, .sap-crm-table__cell--fixedright.sap-crm-table__cell--fixedheader {
+  z-index: 4;
+}
+
+.sap-crm-table__cell--fixedfooter, .sap-crm-table__cell--fixedheader {
+  position: sticky;
+  z-index: 3;
+}
+
+.sap-crm-table__cell--fixedleft {
+  left: 0;
+}
+
+.sap-crm-rtl .sap-crm-table__cell--fixedleft {
+  left: unset;
+  right: 0;
+}
+
+.sap-crm-table__cell--fixedright {
+  right: 0;
+}
+
+.sap-crm-rtl .sap-crm-table__cell--fixedright {
+  left: 0;
+  right: unset;
+}
+
+.sap-crm-table__cell--fixedheader {
+  top: 0;
+}
+
+.sap-crm-table__cell--fixedfooter {
+  bottom: 0;
+}
+
+/* ========================================
+   Cell Separators
+   ======================================== */
+
+.sap-crm-table__cell--sepleft:before, .sap-crm-table__cell--sepright:before {
+  width: 1rem;
+  height: 100%;
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+}
+
+.sap-crm-table__cell--sepleft {
+  box-shadow: inset -0.0625rem 0 0 var(--color-neutral-2);
+}
+
+.sap-crm-table__cell--sepleft:before {
+  left: 100%;
+  display: none;
+  background: var(--color-neutral-faded-1);
+  background: linear-gradient(90deg, var(--color-neutral-faded-1) 0, hsla(0, 0%, 100%, 0));
+}
+
+.sap-crm-table__cell--sepleft.sap-crm-table__cell--header:before {
+  background: radial-gradient(var(--color-background-white), hsla(0, 0%, 100%, 0), "horizontal");
+}
+
+.sap-crm-rtl .sap-crm-table__cell--sepleft:before {
+  right: 100%;
+  left: unset;
+  background: 270deg;
+  background: linear-gradient(90deg, 270deg 0, var(--color-neutral-faded-1) 0 100%);
+}
+
+.sap-crm-table__cell--sepright:before {
+  right: 100%;
+  display: block;
+}
+
+.sap-crm-table__cell--sepright.sap-crm-table__cell--header:before, .sap-crm-table__cell--sepright:before {
+  background: radial-gradient(hsla(0, 0%, 100%, 0), var(--color-background-white), "horizontal");
+}
+
+.sap-crm-rtl .sap-crm-table__cell--sepright:before {
+  left: 100%;
+  right: unset;
+  background: radial-gradient(270deg, hsla(0, 0%, 100%, 0) 0, var(--color-background-white));
+}
+
+.sap-crm-table__cell--sepshadow:before {
+  display: block;
+}
+
+/* ========================================
+   Cell Border Radius
+   ======================================== */
+
+.sap-crm-table__cell--brtopleft {
+  border-top-left-radius: 0.5rem;
+}
+
+.sap-crm-table__cell--brtopright {
+  border-top-right-radius: 0.5rem;
+}
+
+.sap-crm-table__cell--brbottomleft {
+  border-bottom-left-radius: 0.5rem;
+}
+
+.sap-crm-table__cell--brbottomright {
+  border-bottom-right-radius: 0.5rem;
+}
+
+/* ========================================
+   Action Cells
+   ======================================== */
+
+.sap-crm-table__cell--action, .sap-crm-table__cell--actionlist {
+  opacity: 1 !important;
+}
+
+.sap-crm-table__cell--action {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.sap-crm-table__cell--actionlist {
+  padding-right: 0.25rem;
+}
+
+.sap-crm-rtl .sap-crm-table__cell--actionlist {
+  padding-left: 0.25rem;
+  padding-right: unset;
+}
+
+/* ========================================
+   Cell Width Slots
+   ======================================== */
+
+.sap-crm-table__cell--slotslead {
+  min-width: 50px;
+  width: 50px;
+}
+
+.sap-crm-table__cell--slotsleadswitch {
+  min-width: 66px;
+  width: 66px;
+}
+
+.sap-crm-table__cell--slots1 {
+  min-width: 3.625rem;
+  width: 3.625rem;
+}
+
+.sap-crm-table__cell--slots2 {
+  min-width: 6.125rem;
+  width: 6.125rem;
+}
+
+.sap-crm-rtl .sap-crm-table__cell {
+  text-align: right;
+}
+
+/* ========================================
+   Cell Content Helpers
+   ======================================== */
+
+.sap-crm-table__missingtext {
+  font-style: italic;
+  color: var(--color-neutral-4);
+}
+
+.sap-crm-table__detail {
+  font-size: 0.6875rem;
+  color: var(--color-neutral-4);
+  line-height: 1rem;
+  position: absolute;
+  bottom: 0.25rem;
+  left: 2rem;
+  right: 2rem;
+}
+
+.sap-crm-table__detail--success {
+  color: var(--color-accent-green-4);
+}
+
+.sap-crm-table__detail--error {
+  color: var(--color-accent-red-4);
+}
+
+/* ========================================
+   Loading Overlay
+   ======================================== */
+
+.sap-crm-table__loaderoverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  top: 0;
+  left: 0;
+}
+
+.sap-crm-table__loaderoverlay:before {
+  position: absolute;
+  background: var(--color-background-white);
+  opacity: 0.72;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+}
+
+/* ========================================
+   New Table Implementation
+   ======================================== */
+
+.sap-crm-new-table {
+  font-size: 0.875rem;
+  display: grid;
+  grid-area: 1/1;
+  grid-column: 1/-1;
+  grid-auto-rows: min-content;
+  overflow: scroll;
+  min-height: 7.5rem;
+}
+
+.sap-crm-new-table--wrapper {
+  display: grid;
+  margin: 0 -1.5rem -1.5rem;
+}
+
+.sap-crm-new-table-scroll-wrapper {
+  overflow-y: auto;
+  position: relative;
+}
+
+.sap-crm-new-table-header-wrapper {
+  top: 0;
+}
+
+.sap-crm-new-table-footer-wrapper, .sap-crm-new-table-header-wrapper {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1/-1;
+  position: sticky;
+  z-index: 2;
+}
+
+.sap-crm-new-table-footer-wrapper {
+  bottom: 0;
+}
+
+/* ========================================
+   New Table Cell
+   ======================================== */
+
+.sap-crm-new-table-cell {
+  display: flex;
+  align-items: center;
+  background: unset;
+  height: 100%;
+  padding: 0 2rem;
+  font-weight: 500;
+  color: var(--color-neutral-7);
+  white-space: nowrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.sap-crm-new-table-cell--right {
+  justify-content: end;
+  justify-items: end;
+  text-align: end;
+}
+
+.sap-crm-new-table-cell--stick-left:not(.sap-crm-new-table-cell--header) {
+  position: sticky;
+}
+
+.sap-crm-new-table-cell--stick-left:not(.sap-crm-new-table-cell--header):before {
+  left: 100%;
+  background: linear-gradient(90deg, var(--color-neutral-faded-1), hsla(0, 0%, 100%, 0));
+  width: 1rem;
+  height: 100%;
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+}
+
+.sap-crm-new-table-cell--stick-left:not(.sap-crm-new-table-cell--header).sap-crm-rtl:before {
+  right: 100%;
+  left: unset;
+  background: linear-gradient(270deg, var(--color-neutral-faded-1), hsla(0, 0%, 100%, 0));
+}
+
+.sap-crm-new-table-cell--stick-right:not(.sap-crm-new-table-cell--header) {
+  position: sticky;
+}
+
+.sap-crm-new-table-cell--stick-right:not(.sap-crm-new-table-cell--header):before {
+  right: 100%;
+  background: linear-gradient(270deg, var(--color-background-white), hsla(0, 0%, 100%, 0));
+  width: 1rem;
+  height: 100%;
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+}
+
+.sap-crm-new-table-cell--stick-right:not(.sap-crm-new-table-cell--header).sap-crm-rtl:before {
+  left: 100%;
+  right: unset;
+  background: linear-gradient(90deg, var(--color-background-white), hsla(0, 0%, 100%, 0));
+}
+
+.sap-crm-new-table-cell--header {
+  color: var(--color-neutral-4);
+  font-weight: 700;
+}
+
+/* ========================================
+   New Table Row Elements
+   ======================================== */
+
+.sap-crm-new-table-row-selection {
+  display: block;
+  height: 100%;
+  align-content: center;
+  padding-inline-start: 2rem;
+}
+
+.sap-crm-new-table-row-status {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0.5rem;
+}
+
+.sap-crm-new-table-row-status.sap-crm-rtl {
+  right: 0;
+  left: unset;
+}
+
+.sap-crm-new-table-row-status--success {
+  background-color: var(--color-accent-green-4);
+}
+
+.sap-crm-new-table-row-status--caution {
+  background-color: var(--color-accent-orange-4);
+}
+
+.sap-crm-new-table-row-status--error {
+  background-color: var(--color-accent-red-4);
+}
+
+.sap-crm-new-table-row-status--info {
+  background-color: var(--color-accent-blue-4);
+}
+
+.sap-crm-new-table-row-busy-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: hsla(0, 0%, 100%, 0.5);
+  display: block;
+  z-index: 4;
+  cursor: not-allowed;
+}
+
+/* ========================================
+   Virtual Scrolling
+   ======================================== */
+
+.sap-crm-new-table-virtual-container, .sap-crm-new-table-virtual-spacer {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1/-1;
+}
+
+.sap-crm-new-table-virtual-spacer {
+  will-change: transform;
+  height: -moz-min-content;
+  height: min-content;
+  grid-auto-rows: calc(var(--table-row-height, 3rem) + 1px);
+  transform: translateY(0);
+}
+
+/* ========================================
+   Column Resizing
+   ======================================== */
+
+.sap-crm-new-table-resize-handle {
+  width: 3px;
+  top: 0;
+  height: 100%;
+  display: none;
+  z-index: 4;
+  position: absolute;
+  background: var(--color-primary-4);
+  cursor: col-resize;
+}
+
+.sap-crm-new-table-header-resize-handle {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 2px;
+  cursor: col-resize;
+}
+
+.sap-crm-new-table-header-resize-handle:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -0.4375rem;
+  width: 1rem;
+  height: 100%;
+}
+
+.sap-crm-rtl .sap-crm-new-table-header-resize-handle {
+  left: 0;
+  right: unset;
+}
+
+/* ========================================
+   Table Overlays
+   ======================================== */
+
+.sap-crm-new-table-overlay {
+  grid-area: 1/1;
+  padding-bottom: 1rem;
+  z-index: 5;
+}
+
+.sap-crm-new-table-overlay-nodata {
+  margin-top: var(--table-row-height, 3rem);
+}
+
+.sap-crm-new-table-overlay-busy:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 -1.5rem;
+  height: 100%;
+  background: var(--color-background-white);
+  opacity: 0.72;
+}
+
+/* ========================================
+ * Table Container & Header
+ * ======================================== */
+
+.table-container {
+  background: var(--color-background-white);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--color-neutral-2);
+}
+
+.table-header h1 {
+  color: var(--color-neutral-5);
+  font-size: 1.0rem;
+  font-weight: 700;
+}
+
+.table-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.table-container .sap-crm-table--wrapper {
+  padding: 0;
+  margin: 0;
+  overflow-x: auto;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ========================================
+ * Search Box
+ * ======================================== */
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-box input {
+  width: 0;
+  padding: 0;
+  padding-right: 2rem;
+  border: 1px solid var(--color-neutral-3);
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-family: "72", Helvetica, -apple-system, Arial, sans-serif;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.search-box.active input {
+  width: 250px;
+  padding: 0.5rem 2rem 0.5rem 1rem;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  opacity: 1;
+}
+
+.search-clear-btn svg {
+  fill: currentColor;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--color-primary-5);
+}
+
+/* ========================================
+ * Pagination
+ * ======================================== */
+
+.sap-crm-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  background: var(--color-background-white);
+  border-top: 1px solid var(--color-neutral-2);
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+}
+
+.sap-crm-pagination .sap-crm-btn {
+  min-width: 2rem;
+  height: 2rem;
+}
+
+.sap-crm-pagination .sap-crm-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.search-toggle-btn {
+  flex-shrink: 0;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.search-box.active .search-toggle-btn {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Icon-only button override */
+.sap-crm-btn--md--icon_only {
+  width: 2.25rem !important;
+  height: 2.25rem !important;
+  min-width: 2.25rem !important;
+  min-height: 2.25rem !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* ========================================
+ * Modal Dialog
+ * ======================================== */
+
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 2rem;
+}
+
+.modal-backdrop.active {
+  display: flex;
+}
+
+.modal {
+  background: var(--color-background-white);
+  border-radius: 0.5rem;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--color-neutral-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  color: var(--color-neutral-7);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Modal Menu (Meatballs dropdown) */
+.sap-crm-modal-menu__button-wrapper {
+  position: relative;
+}
+
+.sap-crm-modal-menu {
+  position: absolute;
+  top: calc(100% + 0.25rem);
+  right: 0;
+  min-width: 12rem;
+  background: #ffffff;
+  border: 1px solid var(--color-neutral-2);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow: hidden;
+  /* Add transition for smooth appearance */
+  opacity: 1;
+  transform: translateY(0);
+  transition-property: opacity, transform;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.sap-crm-modal-menu__item {
+  padding: 0.75rem 1rem;
+  color: var(--color-neutral-4);
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition-property: background;
+  transition-duration: 0.1s;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  white-space: nowrap;
+}
+
+.sap-crm-modal-menu__item:hover {
+  background: var(--color-neutral-1);
+}
+
+.sap-crm-modal-menu__item:active {
+  background: var(--color-neutral-2);
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  padding: 1.5rem;
+  border-top: 1px solid var(--color-neutral-2);
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+/* ========================================
+ * Form Layout
+ * ======================================== */
+
+.form-row {
+  margin-bottom: 1.5rem;
+}
+
+.form-row label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-neutral-7);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.form-row-inline {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-row-inline label {
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+/* ===========================
+   Column Filters
+   =========================== */
+
+.sap-crm-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  margin-bottom: 0.25rem;
+  background-color: var(--color-neutral-white);
+  border: 1px solid var(--color-neutral-2);
+  border-radius: 0.5rem;
+}
+
+.sap-crm-filter-bar__filters {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+/* Filter Dropdown */
+.sap-crm-filter-dropdown {
+  position: relative;
+}
+
+.sap-crm-filter-dropdown .sap-crm-btn {
+  color: var(--color-primary-4);
+}
+
+.sap-crm-filter-dropdown .sap-crm-btn:hover,
+.sap-crm-filter-dropdown .sap-crm-btn:active {
+  background-color: var(--color-neutral-1);
+  color: var(--color-primary-4);
+}
+
+.sap-crm-filter-dropdown .sap-crm-btn--active {
+  background-color: var(--color-primary-1);
+  border-color: var(--color-primary-4);
+  color: var(--color-primary-4);
+  font-weight: 600;
+}
+
+.sap-crm-filter-count {
+  margin-left: 0.25rem;
+  font-weight: 600;
+}
+
+.sap-crm-filter-dropdown__menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  min-width: 220px;
+  max-width: 320px;
+  background-color: #ffffff;
+  border: 1px solid var(--color-neutral-3);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.sap-crm-filter-dropdown__options {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 0.5rem 0;
+}
+
+.sap-crm-filter-dropdown__option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.sap-crm-filter-dropdown__option:hover {
+  background-color: var(--color-neutral-1);
+}
+
+.sap-crm-filter-dropdown__option input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.sap-crm-filter-dropdown__actions {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-top: 1px solid var(--color-neutral-3);
+}
+
+/* Filter Pills */
+.filter-pills-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  margin-bottom: 0.25rem;
+  background-color: var(--color-neutral-1);
+  border-radius: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-pills-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.sap-crm-filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--color-primary-4);
+  border: 1px solid var(--color-primary-4);
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.sap-crm-filter-pill__label {
+  line-height: 1.4;
+  color: #ffffff;
+}
+
+.sap-crm-filter-pill__remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  padding: 0;
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: bold;
+  transition: opacity 0.15s ease;
+  opacity: 0.9;
+}
+
+.sap-crm-filter-pill__remove:hover {
+  opacity: 1;
+}
+
+/* Clear All Filters Button */
+.clear-all-filters-btn {
+  color: var(--color-primary-4);
+  margin-left: 0.5rem;
+}

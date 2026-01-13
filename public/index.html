@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Score Widget</title>
+  <link rel="stylesheet" href="/css/sap-crm-colors.css">
+  <link rel="stylesheet" href="/css/sap-crm-global.css">
+  <link rel="stylesheet" href="/css/sap-crm-components.css">
+  <style>
+    body {
+      background-color: var(--color-accent-blue-6);
+      color: var(--color-neutral-1);
+      margin: 0;
+      padding: 16px 16px 16px 0;
+      font-family: "72", "72full", Arial, Helvetica, sans-serif;
+    }
+
+    .widget-container {
+      max-width: 400px;
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+    .field-group {
+      margin-bottom: 16px;
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+    .field-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #BCC3CA;
+    }
+
+    .input-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-left: 0;
+      padding-left: 0;
+      min-height: 23px;
+      width: 100%;
+    }
+
+    .score-input {
+      width: 50%;
+      height: 23px;
+      padding: 0 8px;
+      font-size: 14px;
+      border: none;
+      border-radius: 0;
+      background-color: transparent;
+      color: #fff;
+      transition: border-color 0.2s, background-color 0.2s;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      -moz-appearance: textfield;
+    }
+
+    .score-input::-webkit-outer-spin-button,
+    .score-input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    .score-input:hover {
+      background-color: transparent;
+    }
+
+    .score-input:focus {
+      outline: none;
+      border: 2px solid #fff;
+      background-color: var(--color-accent-blue-6);
+      border-radius: 4px;
+      padding: 0 6px;
+    }
+
+    .score-display {
+      font-size: 13px;
+      color: var(--color-neutral-3);
+      margin-top: 4px;
+    }
+
+    .edit-button {
+      display: none;
+      position: absolute;
+      left: calc(50% + 8px);
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      /* Custom colors only */
+      background-color: var(--color-accent-blue-6) !important;
+      border: 1px solid transparent !important;
+      color: #fff !important;
+    }
+
+    .edit-button.force-hidden {
+      display: none !important;
+      opacity: 0 !important;
+    }
+
+    .input-container:hover .edit-button {
+      display: inline-flex !important;
+      opacity: 1;
+    }
+
+    .edit-button:hover {
+      opacity: 1;
+      transform: translateY(-50%) scale(1.05);
+      background-color: var(--color-accent-blue-6) !important;
+      border-color: #BCC3CA !important;
+      color: #fff !important;
+    }
+
+    .edit-button svg {
+      color: #fff !important;
+      fill: #fff !important;
+    }
+
+    /* Custom Range Slider Styling */
+    .score-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: linear-gradient(to right, #e74c3c 0%, #f39c12 25%, #f1c40f 50%, #2ecc71 100%);
+      outline: none;
+      margin: 8px 0 8px 0;
+      cursor: pointer;
+    }
+
+    .score-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid #fff;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      margin-top: -7px; /* Center vertically: (20px - 6px) / 2 = 7px */
+    }
+
+    .score-slider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid #fff;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      border: none; /* Remove default border for Firefox */
+      margin-top: -7px; /* Center vertically */
+    }
+
+    .score-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .score-slider::-moz-range-thumb:hover {
+      transform: scale(1.15);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .score-slider::-webkit-slider-thumb:active {
+      transform: scale(1.25);
+    }
+
+    .score-slider::-moz-range-thumb:active {
+      transform: scale(1.25);
+    }
+
+    /* Track progress fill */
+    .score-slider::-webkit-slider-runnable-track {
+      height: 6px;
+      border-radius: 3px;
+      background: linear-gradient(to right, #e74c3c 0%, #f39c12 25%, #f1c40f 50%, #2ecc71 100%);
+    }
+
+    .score-slider::-moz-range-track {
+      height: 6px;
+      border-radius: 3px;
+      background: linear-gradient(to right, #e74c3c 0%, #f39c12 25%, #f1c40f 50%, #2ecc71 100%);
+    }
+
+    .score-slider::-moz-range-progress {
+      height: 6px;
+      border-radius: 3px;
+      background: linear-gradient(to right, #e74c3c 0%, #f39c12 25%, #f1c40f 50%, #2ecc71 100%);
+    }
+
+    .error-message {
+      display: none;
+      margin-top: 12px;
+      padding: 8px 12px;
+      background-color: rgba(210, 10, 10, 0.2);
+      border-left: 3px solid var(--color-accent-red-4);
+      border-radius: 4px;
+      color: var(--color-accent-red-3);
+      font-size: 13px;
+    }
+
+    .error-message.visible {
+      display: block;
+    }
+
+    .loading-indicator {
+      display: none;
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--color-primary-3);
+    }
+
+    .loading-indicator.visible {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="widget-container">
+    <div class="field-group">
+      <label for="customScore" class="field-label">Custom Score</label>
+      <div class="input-container">
+        <input 
+          type="number" 
+          id="customScore" 
+          class="score-input" 
+          min="0" 
+          max="100" 
+          step="1" 
+          value="0"
+          placeholder="Enter score (0-100)"
+        >
+        <button 
+          class="sap-crm-btn sap-crm-btn--secondary sap-crm-btn--md edit-button" 
+          style="padding: 0.4375rem; min-width: 2.25rem; width: 2.25rem; height: 2.25rem;"
+          id="editButton" 
+          type="button" 
+          aria-label="Edit score">
+          <svg class="sap-crm-icon sap-crm-icon--md" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M16.2929,3.29289 C16.6834,2.90237 17.3166,2.90237 17.7071,3.29289 L17.7071,3.29289 L20.7071,6.29289 C21.0976,6.68342 21.0976,7.31658 20.7071,7.70711 L20.7071,7.70711 L17.7068,10.7074 L7.70711,20.7071 C7.51957,20.8946 7.26522,21 7,21 L7,21 L4,21 C3.44772,21 3,20.5523 3,20 L3,20 L3,17 C3,16.7348 3.10536,16.4804 3.29289,16.2929 L3.29289,16.2929 L13.293,6.29279 Z M14,8.41421 L5.41421,17 L7,18.5858 L15.5858,10 L14,8.41421 Z M17,5.41421 L15.4142,7 L17,8.58579 L18.5858,7 L17,5.41421 Z"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="score-display" id="scoreDisplay">Score: 0/100</div>
+    </div>
+
+    <div class="field-group">
+      <input 
+        type="range" 
+        id="scoreSlider" 
+        class="score-slider" 
+        min="0" 
+        max="100" 
+        step="1" 
+        value="0"
+      >
+    </div>
+
+    <div class="loading-indicator" id="loadingIndicator">Saving...</div>
+    <div class="error-message" id="errorMessage"></div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

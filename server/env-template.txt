@@ -1,0 +1,8 @@
+# SAP Sales and Service Cloud V2 API Configuration
+# Copy this file to .env and fill in your credentials
+
+CRM_BASE_URL=https://your-tenant.crm.cloud.sap
+CRM_USERNAME=your-username
+CRM_PASSWORD=your-password
+PORT=3000
+NODE_ENV=development

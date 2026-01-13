@@ -1,0 +1,9 @@
+---
+applications:
+- name: crm-scoring-widget
+  memory: 128M
+  instances: 1
+  buildpack: nodejs_buildpack
+  command: npm start
+  env:
+    NODE_ENV: production

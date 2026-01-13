@@ -1,0 +1,352 @@
+/**
+ * SAP CRM Global Styles
+ * Extracted from SAP CXM Web Components
+ * Base styles and resets for SAP Horizon design system
+ */
+
+/* Universal Box Sizing and Font Smoothing */
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* CSS Reset */
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+button,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+input,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+q,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+textarea,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  outline: none;
+}
+
+/* HTML5 Display Definitions */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+/* Root App Container */
+#app {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Body Defaults */
+body {
+  line-height: 1;
+  font-family: "72", Helvetica, -apple-system, Arial, sans-serif;
+  background-color: var(--color-background-normal);
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Lists */
+ol,
+ul {
+  list-style: none;
+}
+
+/* Quotes */
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:after,
+blockquote:before,
+q:after,
+q:before {
+  content: "";
+  content: none;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Buttons */
+button {
+  text-align: inherit;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button,
+input {
+  background: transparent;
+  border-color: transparent;
+}
+
+/* Horizontal Rule */
+hr {
+  border-width: 0 0 0.0625rem;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+}
+
+/* Text Formatting */
+b,
+strong {
+  font-weight: 700;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+/* HTML and Body Base Styles */
+html {
+  font-family: "72", Helvetica, -apple-system, Arial, sans-serif;
+  font-size: 16px;
+  color: var(--color-neutral-5);
+  overflow: hidden;
+}
+
+body,
+html {
+  height: 100%;
+  background: var(--color-background-white);
+}
+
+/* Forced Colors */
+* {
+  forced-color-adjust: none;
+}
+
+/* Paragraph Styles */
+p {
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+}
+
+/* Link Styles */
+a {
+  color: var(--color-primary-4);
+  display: inline-block;
+  transition-property: opacity, transform;
+  transition-duration: 0.1s;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  opacity: 0.8;
+  transform: translateY(0.125rem);
+}
+
+/* Horizontal Rule Styling */
+hr {
+  border-bottom: 0.0625rem solid var(--color-neutral-2);
+  margin: 0.4375rem 0 0.5rem;
+}
+
+/* Form Elements */
+button,
+input,
+textarea {
+  letter-spacing: inherit;
+  word-spacing: inherit;
+}
+
+/* ========================================
+   Scrollbar Styles
+   ======================================== */
+
+.sap-crm-scrollbar::-webkit-scrollbar {
+  width: 0.875rem;
+  height: 0.875rem;
+  background-color: transparent;
+}
+
+.sap-crm-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 0.5rem;
+  width: 1rem;
+}
+
+.sap-crm-scrollbar::-webkit-scrollbar-thumb {
+  opacity: 0.85;
+  background: transparent;
+  border-radius: 0.5rem;
+  border: solid transparent;
+  -webkit-transition: background 0.25s ease-in-out;
+  transition: background 0.25s ease-in-out;
+  background-clip: padding-box !important;
+}
+
+.sap-crm-scrollbar::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.sap-crm-scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.sap-crm-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-4);
+  -webkit-transition: background 0.25s ease-in-out;
+  transition: background 0.25s ease-in-out;
+}
+
+.sap-crm-scrollbar:focus-within::-webkit-scrollbar-thumb,
+.sap-crm-scrollbar:focus::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-4);
+  -webkit-transition: background 0.25s ease-in-out;
+  transition: background 0.25s ease-in-out;
+}
+
+.sap-crm-scrollbar--focused::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-3);
+  -webkit-transition: background 0.25s ease-in-out;
+  transition: background 0.25s ease-in-out;
+}
+
+/* Font Faces - SAP 72 Font Family */
+@font-face {
+  font-family: "72";
+  font-weight: 400;
+  font-style: normal;
+  src: url(../fonts/72/72-Regular.woff) format("woff"),
+       url(../fonts/72/72-Regular.woff2) format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "72";
+  font-weight: 400;
+  font-style: italic;
+  src: url(../fonts/72/72-Italic.woff) format("woff"),
+       url(../fonts/72/72-Italic.woff2) format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "72";
+  font-weight: 700;
+  font-style: normal;
+  src: url(../fonts/72/72-Bold.woff) format("woff"),
+       url(../fonts/72/72-Bold.woff2) format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "72-Black";
+  font-weight: 400;
+  font-style: normal;
+  src: url(../fonts/72/72-Black.woff) format("woff"),
+       url(../fonts/72/72-Black.woff2) format("woff2");
+  font-display: swap;
+}

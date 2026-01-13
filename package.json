@@ -1,0 +1,15 @@
+{
+  "name": "crm-scoring-widget",
+  "version": "1.0.0",
+  "description": "Minimal micro-frontend for SAP CRM custom score field",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:server": "cd server && npm run dev",
+    "start": "node server/index.js",
+    "postinstall": "cd server && npm install"
+  },
+  "keywords": ["sap", "crm", "micro-frontend"],
+  "author": "",
+  "license": "MIT"
+}

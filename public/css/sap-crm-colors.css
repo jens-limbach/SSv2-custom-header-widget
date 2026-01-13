@@ -1,0 +1,403 @@
+/**
+ * SAP CRM Color Variables
+ * Extracted from SAP CXM Web Components
+ * Official SAP Horizon color scheme
+ */
+
+:root {
+  /* Background Colors */
+  --color-background-white: #fff;
+  --color-background-normal: #f5f6f7;
+  --color-background-faded: #f7f8f9;
+  --color-background-dark: rgba(53, 74, 95, 0.5);
+  
+  /* Foreground Colors */
+  --color-foreground-white: #fff;
+  
+  /* Primary Colors */
+  --color-primary-1: #dcf3ff;
+  --color-primary-2: #d1efff;
+  --color-primary-3: #89d1ff;
+  --color-primary-4: #0070f2;
+  --color-primary-5: #0064d9;
+  --color-primary-6: #0058bf;
+  --color-primary-faded: rgba(0, 112, 242, 0.5);
+  --color-primary-background: #0070f2;
+  
+  /* Neutral Colors */
+  --color-neutral-1: #eff1f2;
+  --color-neutral-2: #eaecee;
+  --color-neutral-3: #a8b3bd;
+  --color-neutral-4: #556b82;
+  --color-neutral-5: #475e75;
+  --color-neutral-6: #354a5f;
+  --color-neutral-7: #1d2d3e;
+  --color-neutral-faded-1: rgba(0, 0, 0, 0.075);
+  --color-neutral-faded-2: rgba(91, 115, 139, 0.25);
+  --color-neutral-faded-3: rgba(91, 115, 139, 0.75);
+  --color-neutral-faded-4: rgba(71, 94, 117, 0.25);
+  --color-neutral-white-faded: hsla(0, 0%, 100%, 0.5);
+  --color-neutral-background: #8396a8;
+  
+  /* Shadow Colors */
+  --color-shadow-1: rgba(34, 53, 72, 0.05);
+  --color-shadow-2: rgba(34, 53, 72, 0.2);
+  --color-shadow-3: rgba(34, 53, 72, 0.25);
+  --color-shadow-4: rgba(34, 53, 72, 0.3);
+  --color-shadow-5: rgba(34, 53, 72, 0.48);
+  
+  /* Accent Colors - White */
+  --color-accent-white-4: #fff;
+  
+  /* Accent Colors - Aqua */
+  --color-accent-aqua-1: #dbf9ff;
+  --color-accent-aqua-2: #b8f3ff;
+  --color-accent-aqua-3: #2dd6ef;
+  --color-accent-aqua-4: #007fa9;
+  --color-accent-aqua-5: #00709f;
+  --color-accent-aqua-6: #013b64;
+  
+  /* Accent Colors - Teal */
+  --color-accent-teal-1: #dafdf5;
+  --color-accent-teal-2: #c2fcee;
+  --color-accent-teal-3: #2ce0bf;
+  --color-accent-teal-4: #07838f;
+  --color-accent-teal-5: #046c7a;
+  --color-accent-teal-6: #02414c;
+  
+  /* Accent Colors - Green */
+  --color-accent-green-1: #f5fae5;
+  --color-accent-green-2: #ebf5cb;
+  --color-accent-green-3: #97dd40;
+  --color-accent-green-4: #188918;
+  --color-accent-green-5: #256f3a;
+  --color-accent-green-6: #164323;
+  
+  /* Accent Colors - Yellow */
+  --color-accent-yellow-1: #fdf5c9;
+  --color-accent-yellow-2: #fce8a9;
+  --color-accent-yellow-3: #ffb727;
+  --color-accent-yellow-4: #a16b00;
+  --color-accent-yellow-5: #915e00;
+  --color-accent-yellow-6: #523100;
+  
+  /* Accent Colors - Orange */
+  --color-accent-orange-1: #fff8d6;
+  --color-accent-orange-2: #fff3b8;
+  --color-accent-orange-3: #ffc933;
+  --color-accent-orange-4: #c35500;
+  --color-accent-orange-5: #a93e00;
+  --color-accent-orange-6: #6d1900;
+  
+  /* Accent Colors - Red */
+  --color-accent-red-1: #ffeaf4;
+  --color-accent-red-2: rgba(255, 140, 178, 0.25);
+  --color-accent-red-3: #ff8cb2;
+  --color-accent-red-4: #d20a0a;
+  --color-accent-red-5: #aa0808;
+  --color-accent-red-6: #5a0404;
+  
+  /* Accent Colors - Pink */
+  --color-accent-pink-1: #fff0fa;
+  --color-accent-pink-2: #ffdcf3;
+  --color-accent-pink-3: #ff8af0;
+  --color-accent-pink-4: #cc00dc;
+  --color-accent-pink-5: #a100c2;
+  --color-accent-pink-6: #510080;
+  
+  /* Accent Colors - Purple */
+  --color-accent-purple-1: #feeafc;
+  --color-accent-purple-2: #fccff5;
+  --color-accent-purple-3: #e087d3;
+  --color-accent-purple-4: #993c8c;
+  --color-accent-purple-5: #76236a;
+  --color-accent-purple-6: #451a3f;
+  
+  /* Accent Colors - Blue */
+  --color-accent-blue-1: #ebf8ff;
+  --color-accent-blue-2: #d1efff;
+  --color-accent-blue-3: #89d1ff;
+  --color-accent-blue-4: #0070f2;
+  --color-accent-blue-5: #0057d2;
+  --color-accent-blue-6: #00144a;
+  
+  /* Accent Colors - Grey */
+  --color-accent-grey-1: #f5f6f7;
+  --color-accent-grey-2: #eaecee;
+  --color-accent-grey-3: #a9b4be;
+  --color-accent-grey-4: #475e75;
+  --color-accent-grey-5: #354a5f;
+  --color-accent-grey-6: #1a2733;
+  
+  /* Accent Colors - Violet */
+  --color-accent-violet-1: #fff0f5;
+  --color-accent-violet-2: #ffdce8;
+  --color-accent-violet-3: #feadc8;
+  --color-accent-violet-4: #df1278;
+  --color-accent-violet-5: #ba066c;
+  --color-accent-violet-6: #71014b;
+  
+  /* Accent Colors - Ultramarine */
+  --color-accent-ultramarine-1: #ded3ff;
+  --color-accent-ultramarine-2: #d3b6ff;
+  --color-accent-ultramarine-3: #b894ff;
+  --color-accent-ultramarine-4: #5d36ff;
+  --color-accent-ultramarine-5: #470ced;
+  --color-accent-ultramarine-6: #1c0c6e;
+  
+  /* Chart Colors - Aqua */
+  --color-chart-aqua-1: #dbf9ff;
+  --color-chart-aqua-2: #b8f3ff;
+  --color-chart-aqua-3: #2dd6ef;
+  --color-chart-aqua-4: #007fa9;
+  --color-chart-aqua-5: #00709f;
+  --color-chart-aqua-6: #013b64;
+  
+  /* Chart Colors - Teal */
+  --color-chart-teal-1: #dafdf5;
+  --color-chart-teal-2: #c2fcee;
+  --color-chart-teal-3: #2ce0bf;
+  --color-chart-teal-4: #07838f;
+  --color-chart-teal-5: #046c7a;
+  --color-chart-teal-6: #02414c;
+  
+  /* Chart Colors - Green */
+  --color-chart-green-1: #f5fae5;
+  --color-chart-green-2: #ebf5cb;
+  --color-chart-green-3: #97dd40;
+  --color-chart-green-4: #188918;
+  --color-chart-green-5: #256f3a;
+  --color-chart-green-6: #164323;
+  
+  /* Chart Colors - Yellow */
+  --color-chart-yellow-1: #fdf5c9;
+  --color-chart-yellow-2: #fce8a9;
+  --color-chart-yellow-3: #ffb727;
+  --color-chart-yellow-4: #a16b00;
+  --color-chart-yellow-5: #915e00;
+  --color-chart-yellow-6: #523100;
+  
+  /* Chart Colors - Orange */
+  --color-chart-orange-1: #fff8d6;
+  --color-chart-orange-2: #fff3b8;
+  --color-chart-orange-3: #ffc933;
+  --color-chart-orange-4: #c35500;
+  --color-chart-orange-5: #a93e00;
+  --color-chart-orange-6: #6d1900;
+  
+  /* Chart Colors - Red */
+  --color-chart-red-1: #ffeaf4;
+  --color-chart-red-2: #ffd5ea;
+  --color-chart-red-3: #ff8cb2;
+  --color-chart-red-4: #d20a0a;
+  --color-chart-red-5: #aa0808;
+  --color-chart-red-6: #5a0404;
+  
+  /* Chart Colors - Pink */
+  --color-chart-pink-1: #fff0fa;
+  --color-chart-pink-2: #ffdcf3;
+  --color-chart-pink-3: #ff8af0;
+  --color-chart-pink-4: #cc00dc;
+  --color-chart-pink-5: #a100c2;
+  --color-chart-pink-6: #510080;
+  
+  /* Chart Colors - Purple */
+  --color-chart-purple-1: #feeafc;
+  --color-chart-purple-2: #fccff5;
+  --color-chart-purple-3: #e087d3;
+  --color-chart-purple-4: #993c8c;
+  --color-chart-purple-5: #76236a;
+  --color-chart-purple-6: #451a3f;
+  
+  /* Chart Colors - Blue */
+  --color-chart-blue-1: #ebf8ff;
+  --color-chart-blue-2: #d1efff;
+  --color-chart-blue-3: #89d1ff;
+  --color-chart-blue-4: #0070f2;
+  --color-chart-blue-5: #0057d2;
+  --color-chart-blue-6: #00144a;
+  
+  /* Chart Colors - Grey */
+  --color-chart-grey-1: #f5f6f7;
+  --color-chart-grey-2: #eaecee;
+  --color-chart-grey-3: #a9b4be;
+  --color-chart-grey-4: #475e75;
+  --color-chart-grey-5: #354a5f;
+  --color-chart-grey-6: #1a2733;
+  
+  /* Chart Colors - Violet */
+  --color-chart-violet-1: #fff0f5;
+  --color-chart-violet-2: #ffdce8;
+  --color-chart-violet-3: #feadc8;
+  --color-chart-violet-4: #df1278;
+  --color-chart-violet-5: #ba066c;
+  --color-chart-violet-6: #71014b;
+  
+  /* Chart Colors - Ultramarine */
+  --color-chart-ultramarine-1: #f1ecff;
+  --color-chart-ultramarine-2: #e2d8ff;
+  --color-chart-ultramarine-3: #b894ff;
+  --color-chart-ultramarine-4: #5d36ff;
+  --color-chart-ultramarine-5: #470ced;
+  --color-chart-ultramarine-6: #1c0c6e;
+  
+  /* Illustrative Colors */
+  --color-illustrative-1: #9b015d;
+  --color-illustrative-2: #56bdff;
+  --color-illustrative-3: #ff7f4c;
+  --color-illustrative-4: #00144a;
+  --color-illustrative-5: #a9b4be;
+  --color-illustrative-6: #d5dadd;
+  --color-illustrative-7: #dbf1ff;
+  --color-illustrative-8: #fff;
+  --color-illustrative-9: #0899a7;
+  --color-illustrative-10: #dbf1ff;
+  --color-illustrative-11: #df1278;
+  --color-illustrative-12: #00a800;
+  --color-illustrative-13: #0070f2;
+  --color-illustrative-14: #0040b0;
+  --color-illustrative-15: #c35500;
+  --color-illustrative-16: #8d2a00;
+  --color-illustrative-17: #046c7c;
+  --color-illustrative-18: #bce5ff;
+  --color-illustrative-19: #a3dbff;
+  --color-illustrative-20: #89d1ff;
+  --color-illustrative-21: #1b90ff;
+  --color-illustrative-22: #00144a;
+  --color-illustrative-23: #d20a0a;
+  --color-illustrative-24: #ffb2d2;
+  --color-illustrative-25: #ffeaf4;
+  --color-illustrative-26: #ffdf72;
+  --color-illustrative-27: #fff8d6;
+  --color-illustrative-28: #a93e00;
+  --color-illustrative-29: #450b00;
+  --color-illustrative-30: #340800;
+  --color-illustrative-31: #ffab92;
+  
+  /* Dark Mode Colors */
+  --color-dark-background-white: var(--color-accent-blue-6);
+  --color-dark-background-normal: var(--color-neutral-6);
+  --color-dark-background-dark: var(--color-accent-blue-6);
+  --color-dark-primary-1: var(--color-neutral-4);
+  --color-dark-primary-2: var(--color-neutral-5);
+  --color-dark-primary-3: var(--color-neutral-4);
+  --color-dark-primary-4: var(--color-neutral-1);
+  --color-dark-primary-5: var(--color-background-white);
+  --color-dark-primary-6: var(--color-neutral-2);
+  --color-dark-neutral-1: var(--color-accent-blue-6);
+  --color-dark-neutral-2: var(--color-neutral-5);
+  --color-dark-neutral-3: var(--color-neutral-4);
+  --color-dark-neutral-4: var(--color-neutral-3);
+  --color-dark-neutral-5: var(--color-background-white);
+  --color-dark-neutral-6: var(--color-neutral-2);
+  --color-dark-neutral-7: var(--color-background-white);
+  --color-dark-accent-aqua-4: var(--color-accent-aqua-3);
+  --color-dark-accent-teal-4: var(--color-accent-teal-3);
+  --color-dark-accent-green-4: var(--color-accent-green-3);
+  --color-dark-accent-yellow-4: var(--color-accent-yellow-3);
+  --color-dark-accent-orange-4: var(--color-accent-orange-3);
+  --color-dark-accent-red-4: var(--color-accent-red-3);
+  --color-dark-accent-pink-4: var(--color-accent-pink-3);
+  --color-dark-accent-purple-4: var(--color-accent-purple-3);
+  --color-dark-accent-blue-4: var(--color-accent-blue-3);
+  --color-dark-accent-grey-4: var(--color-accent-grey-3);
+  --color-dark-accent-violet-4: var(--color-accent-violet-3);
+  --color-dark-accent-ultramarine-4: var(--color-accent-ultramarine-3);
+  
+  /* Dark Mode Chart Colors */
+  --color-dark-chart-aqua-1: var(--color-chart-aqua-1);
+  --color-dark-chart-aqua-2: var(--color-chart-aqua-1);
+  --color-dark-chart-aqua-3: var(--color-chart-aqua-2);
+  --color-dark-chart-aqua-4: var(--color-chart-aqua-3);
+  --color-dark-chart-aqua-5: var(--color-chart-aqua-4);
+  --color-dark-chart-aqua-6: var(--color-chart-aqua-5);
+  --color-dark-chart-teal-1: var(--color-chart-teal-1);
+  --color-dark-chart-teal-2: var(--color-chart-teal-1);
+  --color-dark-chart-teal-3: var(--color-chart-teal-2);
+  --color-dark-chart-teal-4: var(--color-chart-teal-3);
+  --color-dark-chart-teal-5: var(--color-chart-teal-4);
+  --color-dark-chart-teal-6: var(--color-chart-teal-5);
+  --color-dark-chart-green-1: var(--color-chart-green-1);
+  --color-dark-chart-green-2: var(--color-chart-green-1);
+  --color-dark-chart-green-3: var(--color-chart-green-2);
+  --color-dark-chart-green-4: var(--color-chart-green-3);
+  --color-dark-chart-green-5: var(--color-chart-green-4);
+  --color-dark-chart-green-6: var(--color-chart-green-5);
+  --color-dark-chart-yellow-1: var(--color-chart-yellow-1);
+  --color-dark-chart-yellow-2: var(--color-chart-yellow-1);
+  --color-dark-chart-yellow-3: var(--color-chart-yellow-2);
+  --color-dark-chart-yellow-4: var(--color-chart-yellow-3);
+  --color-dark-chart-yellow-5: var(--color-chart-yellow-4);
+  --color-dark-chart-yellow-6: var(--color-chart-yellow-5);
+  --color-dark-chart-orange-1: var(--color-chart-orange-1);
+  --color-dark-chart-orange-2: var(--color-chart-orange-1);
+  --color-dark-chart-orange-3: var(--color-chart-orange-2);
+  --color-dark-chart-orange-4: var(--color-chart-orange-3);
+  --color-dark-chart-orange-5: var(--color-chart-orange-4);
+  --color-dark-chart-orange-6: var(--color-chart-orange-5);
+  --color-dark-chart-red-1: var(--color-chart-red-1);
+  --color-dark-chart-red-2: var(--color-chart-red-1);
+  --color-dark-chart-red-3: var(--color-chart-red-2);
+  --color-dark-chart-red-4: var(--color-chart-red-3);
+  --color-dark-chart-red-5: var(--color-chart-red-4);
+  --color-dark-chart-red-6: var(--color-chart-red-5);
+  --color-dark-chart-pink-1: var(--color-chart-pink-1);
+  --color-dark-chart-pink-2: var(--color-chart-pink-1);
+  --color-dark-chart-pink-3: var(--color-chart-pink-2);
+  --color-dark-chart-pink-4: var(--color-chart-pink-3);
+  --color-dark-chart-pink-5: var(--color-chart-pink-4);
+  --color-dark-chart-pink-6: var(--color-chart-pink-5);
+  --color-dark-chart-purple-1: var(--color-chart-purple-1);
+  --color-dark-chart-purple-2: var(--color-chart-purple-1);
+  --color-dark-chart-purple-3: var(--color-chart-purple-2);
+  --color-dark-chart-purple-4: var(--color-chart-purple-3);
+  --color-dark-chart-purple-5: var(--color-chart-purple-4);
+  --color-dark-chart-purple-6: var(--color-chart-purple-5);
+  --color-dark-chart-blue-1: var(--color-chart-blue-1);
+  --color-dark-chart-blue-2: var(--color-chart-blue-1);
+  --color-dark-chart-blue-3: var(--color-chart-blue-2);
+  --color-dark-chart-blue-4: var(--color-chart-blue-3);
+  --color-dark-chart-blue-5: var(--color-chart-blue-4);
+  --color-dark-chart-blue-6: var(--color-chart-blue-5);
+  --color-dark-chart-grey-1: var(--color-chart-grey-1);
+  --color-dark-chart-grey-2: var(--color-chart-grey-1);
+  --color-dark-chart-grey-3: var(--color-chart-grey-2);
+  --color-dark-chart-grey-4: var(--color-chart-grey-3);
+  --color-dark-chart-grey-5: var(--color-chart-grey-4);
+  --color-dark-chart-grey-6: var(--color-chart-grey-5);
+  --color-dark-chart-violet-1: var(--color-chart-violet-1);
+  --color-dark-chart-violet-2: var(--color-chart-violet-1);
+  --color-dark-chart-violet-3: var(--color-chart-violet-2);
+  --color-dark-chart-violet-4: var(--color-chart-violet-3);
+  --color-dark-chart-violet-5: var(--color-chart-violet-4);
+  --color-dark-chart-violet-6: var(--color-chart-violet-5);
+  --color-dark-chart-ultramarine-1: var(--color-chart-ultramarine-1);
+  --color-dark-chart-ultramarine-2: var(--color-chart-ultramarine-1);
+  --color-dark-chart-ultramarine-3: var(--color-chart-ultramarine-2);
+  --color-dark-chart-ultramarine-4: var(--color-chart-ultramarine-3);
+  --color-dark-chart-ultramarine-5: var(--color-chart-ultramarine-4);
+  --color-dark-chart-ultramarine-6: var(--color-chart-ultramarine-5);
+  
+  /* Dark Mode Action Card Colors */
+  --color-dark-actioncard-background-white: var(--color-accent-blue-6);
+  --color-dark-actioncard-background-normal: var(--color-neutral-6);
+  --color-dark-actioncard-background-dark: var(--color-accent-blue-6);
+  --color-dark-actioncard-primary-1: var(--color-neutral-4);
+  --color-dark-actioncard-primary-3: var(--color-neutral-3);
+  --color-dark-actioncard-primary-4: var(--color-neutral-1);
+  --color-dark-actioncard-primary-5: var(--color-background-white);
+  --color-dark-actioncard-primary-6: var(--color-neutral-2);
+  --color-dark-actioncard-neutral-1: var(--color-accent-blue-6);
+  --color-dark-actioncard-neutral-2: var(--color-neutral-5);
+  --color-dark-actioncard-neutral-3: var(--color-neutral-4);
+  --color-dark-actioncard-neutral-4: var(--color-neutral-3);
+  --color-dark-actioncard-neutral-5: var(--color-background-white);
+  --color-dark-actioncard-neutral-6: var(--color-neutral-2);
+  --color-dark-actioncard-neutral-7: var(--color-background-white);
+  --color-dark-actioncard-accent-blue-4: var(--color-accent-blue-3);
+  
+  /* Custom Link Colors */
+  --color-custom-link-transparent: var(--color-neutral-6);
+  --color-custom-link-neutraldark: var(--color-neutral-7);
+  --color-custom-link-disabled: var(--color-neutral-3);
+}
