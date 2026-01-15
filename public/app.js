@@ -142,6 +142,9 @@ async function saveScore() {
     previousScore = newScore
     currentScore = newScore
     console.log('Score saved successfully:', newScore)
+    
+    // Trigger refresh event in parent CRM UI
+    triggerRefreshEvent()
 
   } catch (error) {
     console.error('Error saving score:', error)
@@ -234,6 +237,16 @@ function showError(message) {
 // Hide error message
 function hideError() {
   errorMessage.classList.remove('visible')
+}
+
+// Trigger refresh event in parent CRM UI
+function triggerRefreshEvent() {
+  var event = { 
+    event: "accountRefreshEvent",
+    operation: "triggerCustomAction"
+  }
+  window.parent.postMessage(event, '*')
+  console.log('Refresh event triggered in parent CRM UI')
 }
 
 // Start the widget
